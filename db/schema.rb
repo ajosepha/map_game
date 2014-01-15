@@ -11,16 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140114201817) do
-
-  create_table "gardens", :force => true do |t|
-    t.string   "garden_name"
-    t.string   "address"
-    t.float    "size"
-    t.string   "nyc_neighborhood"
-    t.string   "boro"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end
