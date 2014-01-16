@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116165445) do
+ActiveRecord::Schema.define(:version => 20140116185210) do
+
+  create_table "community_health_centers", :force => true do |t|
+    t.string  "name_of_center"
+    t.string  "center_address"
+    t.integer "zip"
+  end
 
   create_table "gardens", :force => true do |t|
     t.string "garden_name"
