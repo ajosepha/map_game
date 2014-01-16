@@ -13,7 +13,7 @@ class GovJob < ActiveRecord::Base
 
     parsed_file.each do |govjob|
 
-      g = GovJobs.new(govjob)
+      g = GovJob.new(govjob)
       g.save
     end
   end
