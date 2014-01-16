@@ -118,6 +118,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  json
   rails (= 3.2.16)
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)
