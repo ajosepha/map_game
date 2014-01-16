@@ -11,12 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116194720) do
+ActiveRecord::Schema.define(:version => 20140116205227) do
 
   create_table "community_health_centers", :force => true do |t|
     t.string  "name_of_center"
     t.string  "center_address"
     t.integer "zip"
+  end
+
+  create_table "complaints", :force => true do |t|
+    t.datetime "created_date"
+    t.datetime "closed_date"
+    t.string   "complaint_type"
+    t.string   "descriptor"
+    t.string   "incident_address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "gardens", :force => true do |t|
