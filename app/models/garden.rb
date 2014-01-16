@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class Garden < ActiveRecord::Base
-
+  attr_accessible :garden_name, :address, :boro, :size, :latitude, :longitude, :neighborhoodname
   belongs_to :neighborhood
 
   def self.make_gardens
@@ -10,12 +10,14 @@ class Garden < ActiveRecord::Base
     parsed_file = JSON.parse(file.read)
 
     parsed_file.each do |garden|
-      garden.delete("propid") #=> and others
+      garden.delete("cross_streets")
+      garden.delete("council_district")
+      garden.delete("propid")
+      garden.delete("jurisdiction")
+      garden.delete("community_board")
       g = Garden.new(garden)
-     g.save
+      g.save
     end
-    
-
   end
 
 end
