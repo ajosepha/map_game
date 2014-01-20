@@ -11,16 +11,18 @@ class CulturalOrganization < ActiveRecord::Base
 
 
 
-    b = []
-    #b is an array of hashes
-    parsed_file.each do |org|
-      b << org["location_1"]
-    end
+    # b = []
+    # #b is an array of hashes
+    # parsed_file.each do |org|
+    #   b << org["location_1"]
+    # end
 
     #this works but gives me an error
-    b.each do |array|
-      array.delete("location_1")
-    end
+    # b.each do |array|
+    #   array.delete("location_1")
+    # end
+
+ 
 
     #  b.each do |array|
     #   array.each do |hash|
