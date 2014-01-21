@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class LicensedBusiness < ActiveRecord::Base
-  attr_accessible :full_address, :business_name, :trade_name, :industry
+  attr_accessible :full_address, :zip_code, :business_name, :trade_name, :industry
   
   belongs_to :neighborhood
 
