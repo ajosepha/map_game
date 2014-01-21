@@ -11,10 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20140121155414) do
-
-
 
   create_table "community_health_centers", :force => true do |t|
     t.string  "name_of_center"
@@ -33,11 +30,12 @@ ActiveRecord::Schema.define(:version => 20140121155414) do
   end
 
   create_table "cultural_organizations", :force => true do |t|
-    t.string "organization_name"
-    t.string "discipline_code"
-    t.string "human_address"
-    t.float  "longitude"
-    t.float  "latitude"
+    t.string  "organization_name"
+    t.string  "discipline_code"
+    t.string  "human_address"
+    t.integer "zip_code"
+    t.float   "longitude"
+    t.float   "latitude"
   end
 
   create_table "gardens", :force => true do |t|
@@ -61,10 +59,13 @@ ActiveRecord::Schema.define(:version => 20140121155414) do
   end
 
   create_table "licensed_businesses", :force => true do |t|
-    t.string "trade_name"
-    t.string "business_name"
-    t.string "full_address"
-    t.string "industry"
+    t.string  "trade_name"
+    t.string  "business_name"
+    t.string  "full_address"
+    t.integer "zip_code"
+    t.string  "industry"
+    t.float   "latitude"
+    t.float   "longitude"
   end
 
   create_table "recycling_bins", :force => true do |t|
@@ -72,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20140121155414) do
     t.float  "latitude"
     t.float  "longitude"
   end
-
 
   create_table "start_up_jobs", :force => true do |t|
     t.string   "company_name"
@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(:version => 20140121155414) do
     t.float    "latitude"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-
   end
 
 end

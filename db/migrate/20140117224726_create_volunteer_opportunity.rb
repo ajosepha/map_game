@@ -1,4 +1,4 @@
-class CreateVolunteerOpportunities < ActiveRecord::Migration
+class CreateVolunteerOpportunity < ActiveRecord::Migration
   def change
     create_table :volunteer_opportunities do |t|
       t.string  :title
