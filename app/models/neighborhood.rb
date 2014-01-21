@@ -2,7 +2,6 @@ class Neighborhood < ActiveRecord::Base
   has_many :gardens
   has_many :licensed_businesses
   has_many :complaints
-  has_many :farmers_markets
   has_many :cultural_organizations
   has_many :recycling_bins
   has_many :volunteer_opportunities
