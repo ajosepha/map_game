@@ -7,6 +7,7 @@ class CreateComplaint < ActiveRecord::Migration
       t.string :complaint_type
       t.string :descriptor
       t.string :incident_address
+      t.integer :incident_zip
       t.float :latitude
       t.float :longitude
     end

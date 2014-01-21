@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class CulturalOrganization < ActiveRecord::Base
-  attr_accessible :discipline_code, :longitude, :latitude, :human_address, :organization_name
+  attr_accessible :discipline_code, :longitude, :latitude, :human_address, :organization_name, :zip_code
 
   belongs_to :neighborhood
 
