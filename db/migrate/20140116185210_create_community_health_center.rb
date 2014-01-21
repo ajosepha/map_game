@@ -5,6 +5,8 @@ class CreateCommunityHealthCenter < ActiveRecord::Migration
       t.string :name_of_center
       t.string :center_address
       t.integer :zip
+      t.float :latitude
+      t.float :longitude
 
     end
   end
