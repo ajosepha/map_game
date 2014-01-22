@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.16'
 gem 'json'
+gem 'haml'
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Bundle edge Rails instead:
