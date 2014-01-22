@@ -4,12 +4,12 @@ class CreateGame < ActiveRecord::Migration
 
       t.integer :points
       t.integer :money
-      t.id :user_id
-      t.id :neighborhood_id
+      # t.id :user_id
+      # t.id :neighborhood_id
       
-      items_neighborhood_has.each do |resource|
-        t.bool :has_resource
-      end
+      # items_neighborhood_has.each do |resource|
+      #   t.bool :has_resource
+      # end
 
       t.timestamps
     end
