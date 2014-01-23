@@ -1,4 +1,7 @@
 class Neighborhood < ActiveRecord::Base
+  has_many :games
+  has_many :users, :through => :games
+
   has_many :gardens
   has_many :licensed_businesses
   has_many :complaints
