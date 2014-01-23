@@ -67,13 +67,10 @@ ActiveRecord::Schema.define(:version => 20140123155913) do
   end
 
   create_table "licensed_businesses", :force => true do |t|
-    t.string  "trade_name"
-    t.string  "business_name"
-    t.string  "full_address"
-    t.integer "zip_code"
-    t.string  "industry"
-    t.float   "latitude"
-    t.float   "longitude"
+    t.string "trade_name"
+    t.string "business_name"
+    t.string "full_address"
+    t.string "industry"
   end
 
   create_table "recycling_bins", :force => true do |t|
