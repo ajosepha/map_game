@@ -5,9 +5,9 @@ class Game < ActiveRecord::Base
 
 
   def find_cultural_organizations
-    CulturalOrganization.where("zip_code == 11205").find_each do |organization|
-      organization.organization_name
-    end
+    @cultural_organizations = CulturalOrganization.where(:zip_code => self.zip.zip).to_a
   end
+
+
 
 end
