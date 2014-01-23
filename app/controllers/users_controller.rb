@@ -5,4 +5,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def game
+    @game = user.game
+    @zip = user.game.zip
+  end
+
 end
