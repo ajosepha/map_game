@@ -66,15 +66,13 @@ ActiveRecord::Schema.define(:version => 20140124150231) do
   end
 
   create_table "gardens", :force => true do |t|
-    t.string   "garden_name"
-    t.string   "address"
-    t.string   "neighborhoodname"
-    t.string   "boro"
-    t.float    "size"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string "garden_name"
+    t.string "address"
+    t.string "neighborhoodname"
+    t.string "boro"
+    t.float  "size"
+    t.float  "latitude"
+    t.float  "longitude"
   end
 
   create_table "gov_jobs", :force => true do |t|

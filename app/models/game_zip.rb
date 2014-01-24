@@ -21,15 +21,17 @@ class GameZip < ActiveRecord::Base
     end
   end
 
-
   def find_community_health_centers
     health_centers = CommunityHealthCenter.where(:zip => zip).to_a
-    if !health_centers.nil?
       health_centers.each do |center|
         self.community_health_centers << center
       end
-    else
-      self.community_health_centers = []
+  end
+
+  def find_complaints
+    local_complaints = Complaint.where(:incident_zip => zip).to_a
+    local_complaints.each do |complaint|
+      self.complaints << complaint
     end
   end
 
