@@ -7,6 +7,7 @@ class CreateStartUpJob < ActiveRecord::Migration
       t.integer :zip
       t.integer :longitude
       t.integer :latitude
+      t.belongs_to :game_zip
       t.timestamps
     end
 

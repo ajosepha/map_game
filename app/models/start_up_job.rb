@@ -1,9 +1,8 @@
 require 'open-uri'
 
 class StartUpJob < ActiveRecord::Base
-  belongs_to :neighborhood
-
   attr_accessible :company_name, :address, :hiring, :zip, :longitude, :latitude
+  belongs_to :game_zip
 
 
   def self.make_start_up_jobs

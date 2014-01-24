@@ -8,6 +8,7 @@ class CreateGovJob < ActiveRecord::Migration
       t.datetime :posting_date
       t.float :latitude
       t.float :longitude
+      t.timestamps
     end
   end
 end 

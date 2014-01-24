@@ -2,8 +2,7 @@ require 'open-uri'
 
 class CommunityHealthCenter < ActiveRecord::Base
   attr_accessible :zip, :center_address, :name_of_center
-
-  belongs_to :neighborhood
+  belongs_to :game_zip
 
   def self.make_community_health_centers
     file = open('http://data.cityofnewyork.us/resource/b2sp-asbg.json')

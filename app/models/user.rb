@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :games
-  has_many :neighborhoods, :through => :games
+  has_many :game_zips, :through => :games
   has_many :friends, class_name: "User", foreign_key: "user_id"
   
   # attr_accessible :title, :body

@@ -1,0 +1,15 @@
+CommunityHealthCenter.make_community_health_centers
+Complaint.make_complaints
+CulturalOrganization.make_cultural_organizations
+Garden.make_gardens
+GovJob.make_gov_jobs
+LicensedBusiness.make_licensed_businesses
+RecyclingBin.make_recycling_bins
+StartUpJob.make_start_up_jobs
+VolunteerOpportunity.make_volunteer_opportunities
+
+mapsy = User.create!(:password =>"password", :user_name => "Mapsy", :email => "mapsy@example.com", :twitter=> "@therealmapsy")
+
+game_zip = GameZip.create!(:zip => 10022)
+
+game = Game.create!(:points => 100000, :money => 2000, :game_zip_id => 1, :user_id => 1)

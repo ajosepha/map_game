@@ -1,4 +1,4 @@
-class Zip < ActiveRecord::Base
+class GameZip < ActiveRecord::Base
   attr_accessible :zip
 
   has_many :games

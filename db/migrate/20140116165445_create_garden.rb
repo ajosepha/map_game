@@ -1,5 +1,4 @@
 class CreateGarden < ActiveRecord::Migration
-
   def change
     create_table :gardens do |t|
       t.string :garden_name
@@ -9,6 +8,7 @@ class CreateGarden < ActiveRecord::Migration
       t.float :size
       t.float :latitude
       t.float :longitude
+      t.timestamps
     end
   end
 
