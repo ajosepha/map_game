@@ -1,10 +1,8 @@
 MapGame::Application.routes.draw do
 
-  resources :game_zips
+  # resources :game_zips
 
-
-  resources :zips
-
+  get "/game_zips/:zip", to: "game_zips#show"
 
   get "/users/new", to: "users#new"
 

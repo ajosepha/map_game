@@ -1,0 +1,18 @@
+%p#notice
+  = notice
+
+%p
+  %b Zip:
+  = @game_zip.zip
+
+%p
+  %b Cultural Organizations:
+  %ul
+  - @game_zip.cultural_organizations.each do|org|
+    %li
+      = org.organization_name
+      = org.discipline_code
+
+
+-# = link_to 'Edit', edit_game_zip_path(@game_zip)
+-# = link_to 'Back', game_zips_path
