@@ -42,5 +42,12 @@ class GameZip < ActiveRecord::Base
     end
   end
 
+  def find_start_up_jobs
+    local_jobs = StartUpJob.where(:zip => zip).to_a
+    local_jobs.each do |job|
+      self.start_up_jobs << job
+    end
+  end
+
 
 end
