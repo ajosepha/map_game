@@ -14,4 +14,12 @@ class GameZip < ActiveRecord::Base
   has_many :community_health_centers
   has_many :start_up_jobs
 
+  def find_cultural_organizations
+    @cultural_organizations = CulturalOrganization.where(:zip_code => self.zip.zip).to_a
+  end
+
+  def find_community_health_centers
+    @community_health_centers = CommunityHealthCenter.where(:zip => self.zip.zip).to_a
+  end
+
 end
