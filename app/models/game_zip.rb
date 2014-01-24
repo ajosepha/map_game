@@ -35,4 +35,12 @@ class GameZip < ActiveRecord::Base
     end
   end
 
+  def find_licensed_businesses
+    local_businesses = LicensedBusiness.where(:zip_code =>zip).to_a
+    local_businesses.each do |business|
+      self.licensed_businesses << business
+    end
+  end
+
+
 end
