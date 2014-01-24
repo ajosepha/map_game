@@ -15,11 +15,22 @@ class GameZip < ActiveRecord::Base
   has_many :start_up_jobs
 
   def find_cultural_organizations
-    @cultural_organizations = CulturalOrganization.where(:zip_code => self.zip.zip).to_a
+    local_orgs = CulturalOrganization.where(:zip_code => zip).to_a
+    local_orgs.each do |org|
+      self.cultural_organizations << org
+    end
   end
 
+
   def find_community_health_centers
-    @community_health_centers = CommunityHealthCenter.where(:zip => self.zip.zip).to_a
+    health_centers = CommunityHealthCenter.where(:zip => zip).to_a
+    if !health_centers.nil?
+      health_centers.each do |center|
+        self.community_health_centers << center
+      end
+    else
+      self.community_health_centers = []
+    end
   end
 
 end
