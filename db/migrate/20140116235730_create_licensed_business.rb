@@ -8,6 +8,8 @@ class CreateLicensedBusiness < ActiveRecord::Migration
       t.string :industry
       t.float :latitude
       t.float :longitude
+      t.belongs_to :game_zip
+      t.timestamps
     end
   end
 end

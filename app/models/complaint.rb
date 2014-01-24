@@ -3,7 +3,7 @@ require 'open-uri'
 class Complaint < ActiveRecord::Base
   attr_accessible :created_date, :closed_date, :complaint_type, :descriptor, :incident_address, :incident_zip, :latitude, :longitude
 
-  belongs_to :neighborhood
+  belongs_to :game_zip
 
   def self.make_complaints
     file = open('http://data.cityofnewyork.us/resource/erm2-nwe9.json')

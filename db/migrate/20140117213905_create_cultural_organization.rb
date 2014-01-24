@@ -7,6 +7,8 @@ class CreateCulturalOrganization < ActiveRecord::Migration
       t.integer :zip_code
       t.float :longitude
       t.float :latitude
+      t.belongs_to :game_zip
+      t.timestamps
     end
   end
 

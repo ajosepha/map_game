@@ -1,13 +1,7 @@
 class Game < ActiveRecord::Base
   belongs_to :user
-  belongs_to :zip
+  belongs_to :game_zip
 
-
-
-  def find_cultural_organizations
-    @cultural_organizations = CulturalOrganization.where(:zip_code => self.zip.zip).to_a
-  end
-
-
+  attr_reader :cultural_organizations, :community_health_centers
 
 end

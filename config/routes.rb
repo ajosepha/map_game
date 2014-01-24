@@ -1,5 +1,8 @@
 MapGame::Application.routes.draw do
 
+  resources :game_zips
+
+
   resources :zips
 
 

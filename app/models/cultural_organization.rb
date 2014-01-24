@@ -3,7 +3,7 @@ require 'open-uri'
 class CulturalOrganization < ActiveRecord::Base
   attr_accessible :discipline_code, :longitude, :latitude, :human_address, :organization_name, :zip_code
 
-  belongs_to :neighborhood
+  belongs_to :game_zip
 
   def self.make_cultural_organizations
     file = open('http://data.cityofnewyork.us/resource/w6ua-xz2g.json')
