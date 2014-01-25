@@ -14,6 +14,9 @@ class GameZipsController < ApplicationController
   # GET /game_zips/1.json
   def show
     @game_zip = GameZip.where(:zip == params[:zip]).first
+    Complaint.make_complaints if Complaint.first.class == NilClass
+    
+    @game_zip.find_complaints 
 
     respond_to do |format|
       format.html # show.html.erb
