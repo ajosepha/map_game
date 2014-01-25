@@ -10,27 +10,26 @@ class GameZipsController < ApplicationController
   #   end
   # end
 
-  def before
-    CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
-    Complaint.make_complaints if Complaint.first.class == NilClass
-    CulturalOrganization.make_cultural_organizations if CulturalOrganization.first.class == NilClass
-    Garden.make_gardens if Garden.first.class == NilClass
-    GovJob.make_gov_jobs if GovJob.first.class == NilClass
-    LicensedBusiness.make_licensed_businesses if LicensedBusiness.first.class == NilClass
-    RecyclingBin.make_recycling_bins if RecyclingBin.first.class == NilClass
-    StartUpJob.make_start_up_jobs if StartUpJob.first.class == NilClass
-    VolunteerOpportunity.make_volunteer_opportunities if VolunteerOpportunity.first.class == NilClass
-  end
+  # def before
+  #   CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
+  #   Complaint.make_complaints if Complaint.first.class == NilClass
+  #   CulturalOrganization.make_cultural_organizations if CulturalOrganization.first.class == NilClass
+  #   Garden.make_gardens if Garden.first.class == NilClass
+  #   GovJob.make_gov_jobs if GovJob.first.class == NilClass
+  #   LicensedBusiness.make_licensed_businesses if LicensedBusiness.first.class == NilClass
+  #   RecyclingBin.make_recycling_bins if RecyclingBin.first.class == NilClass
+  #   StartUpJob.make_start_up_jobs if StartUpJob.first.class == NilClass
+  #   VolunteerOpportunity.make_volunteer_opportunities if VolunteerOpportunity.first.class == NilClass
+  # end
 
   # GET /game_zips/1
   # GET /game_zips/1.json
   def show
-    if GameZip.nyc_zips.include?(params[:zip])
-      # if GameZip.where(:zip => params[:zip]). == 0
-      #   @game_zip = GameZip.create!(:zip => params[:zip])
-      # else
-        @game_zip = GameZip.where(:zip => params[:zip]).first
-      # end
+    if GameZip.where(:zip => params[:zip]).length == 0
+      @game_zip = GameZip.create(:zip => params[:zip])
+    else
+      @game_zip = GameZip.where(:zip => 10022).first
+    end
     @game_zip.find_community_health_centers if @game_zip.community_health_centers.length == 0
     @game_zip.find_complaints if @game_zip.complaints.length == 0
     @game_zip.find_cultural_organizations if @game_zip.cultural_organizations.length == 0
@@ -38,19 +37,18 @@ class GameZipsController < ApplicationController
     # NO ZIP @game_zip.find_gov_jobs if @game_zip.gov_jobs.length == 0
     @game_zip.find_licensed_businesses if @game_zip.licensed_businesses.length == 0
     # NO ZIP @game_zip.find_recycling_bins if @game_zip.recycling_bins.length == 0
-    # @game_zip.find_start_up_jobs if @game_zip.start_up_jobs.length == 0
-    # @game_zip.find_volunteer_opportunities if @game_zip.volunteer_opportunities.length == 0
+    @game_zip.find_start_up_jobs if @game_zip.start_up_jobs.length == 0
+    # NO ZIP @game_zip.find_volunteer_opportunities if @game_zip.volunteer_opportunities.length == 0
     # @game_zip.save
-    end
 
     respond_to do |format|
-      if @game_zip.class == NilClass
-        format.html { :notice => 'This is not a nyc zip code.' }
-      else
-        format.html # show.html.erb
+        format.html # show.html.haml
         format.json { render json: @game_zip }
-      end
     end
+  end
+
+  def error
+
   end
 
   # GET /game_zips/new
