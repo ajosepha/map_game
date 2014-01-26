@@ -1,7 +1,7 @@
 require 'open-uri'
 class VolunteerOpportunity < ActiveRecord::Base
-  belongs_to :game_zip
   attr_accessible :title, :org_title, :address, :zip, :latitude, :longitude
+  belongs_to :game_zip
 
   def self.make_volunteer_opportunities
     file = open('http://data.cityofnewyork.us/resource/bquu-z2ht.json')

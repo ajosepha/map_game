@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140126183041) do
+ActiveRecord::Schema.define(:version => 20140126194028) do
 
   create_table "community_health_centers", :force => true do |t|
     t.string   "name_of_center"
@@ -108,6 +108,18 @@ ActiveRecord::Schema.define(:version => 20140126183041) do
     t.float    "longitude"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "senior_centers", :force => true do |t|
+    t.string   "program_name"
+    t.string   "sponsor_name"
+    t.string   "program_address"
+    t.integer  "program_zipcode"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "game_zip_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "start_up_jobs", :force => true do |t|

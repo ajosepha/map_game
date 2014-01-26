@@ -50,10 +50,30 @@ class GameZip < ActiveRecord::Base
     end
   end
 
+  def find_senior_centers
+    local_centers = SeniorCenter.where(:program_zipcode => zip).to_a
+    local_centers.each do |center|
+      self.senior_centers << center
+    end
+
   def find_start_up_jobs
     local_jobs = StartUpJob.where(:zip => zip).to_a
     local_jobs.each do |job|
       self.start_up_jobs << job
+    end
+  end
+
+  def find_volunteer_opportunities
+    local_opportunity = VolunteerOpportunity.where(:zip => zip).to_a
+    local_opportunity.each do |opportunity|
+      self.volunteer_opportunities << opportunity
+    end
+  end
+
+  def find_youth_programs
+    local_programs = YouthPrograms.where(:zip => zip).to_a
+    local_programs.each do |program|
+      self.youth_programs << program
     end
   end
 
