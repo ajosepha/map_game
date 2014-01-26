@@ -107,47 +107,48 @@ class Restaurant < ActiveRecord::Base
     "00"=>"Not Listed/Not Applicable" }
 
   def self.make_restaurants
-  restaurants = []
-  desired_data = [1, 3, 4, 5, 7, 8, 10, 12]
-  column_names = ["name", "street_address", "zip", "cuisine", "inspection_date", "violation", "current_grade" ]
+    desired_data = [1, 3, 4, 5, 7, 8, 10, 12]
+    column_names = [:name, :street_address, :zip, :cuisine, :inspection_date, :violation, :current_grade]
 
-  document = File.open("#{Rails.public_path}/data/Inspections.txt").readlines
-  document.each do |line|
-    temp_array = []
-    temp_hash = {}
-    nil_flag = false
-    row = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').split(",")
-    row.each_with_index do |data_element, index|
-      nil_flag = true if data_element == nil && index != 10
-      if desired_data.include?(index)
-        data_element = data_element.gsub("\"", "").gsub("   ", " ").gsub("  ", " ").strip
-        case index
-          when 4
-            temp_array[1].concat(" " + data_element)
-          when 7
-            data_element = @@cuisine[data_element]
-            temp_array << data_element
-          when 10
-            if @@violations.include?(data_element)
-              data_element = @@violations[data_element]
-            elsif data_element == nil
-              data_element = "NONE"
+    File.open("#{Rails.public_path}/data/smaller_Inspections.txt").readlines.each do |line|
+      temp_array = []
+      temp_hash = {}
+      nil_flag = false
+      element_array = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').split(",")
+      element_array.each_with_index do |data_element, index|
+        nil_flag = true if data_element == nil && index != 10
+        if desired_data.include?(index)
+          data_element = data_element.gsub("\"", "").gsub("   ", " ").gsub("  ", " ").strip
+          case index
+            when 4
+              temp_array[1].concat(" " + data_element)
+            when 7
+              data_element = @@cuisine[data_element]
+              temp_array << data_element
+            when 8
+              nil_flag = true if data_element[0..3] != "2013"
+              temp_array << data_element
+            when 10
+              if @@violations.include?(data_element)
+                data_element = @@violations[data_element]
+              elsif data_element == nil
+                data_element = "NONE"
+              else
+                data_element = "boring"
+              end
+              temp_array << data_element
+            when 12
+              nil_flag = true if data_element == ""
+              temp_array << data_element
             else
-              data_element = "boring"
-            end
-            temp_array << data_element
-          else
-            temp_array << data_element
+              temp_array << data_element
+          end
         end
-      end
-      if nil_flag == false
-        temp_array.each_with_index do |item, index|
-          temp_hash[column_names[index]] = item
+          temp_array.each_with_index {|item, index| temp_hash[column_names[index]] = item} if nil_flag == false
         end
+      Restaurant.new(temp_hash).save if nil_flag == false
       end
-    end
-    Restaurant.new(temp_hash).save if nil_flag == false
-  end
+
   end
 
 
