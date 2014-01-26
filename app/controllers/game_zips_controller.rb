@@ -38,7 +38,7 @@ class GameZipsController < ApplicationController
     @game_zip.find_licensed_businesses if @game_zip.licensed_businesses.length == 0
     # NO ZIP @game_zip.find_recycling_bins if @game_zip.recycling_bins.length == 0
     @game_zip.find_start_up_jobs if @game_zip.start_up_jobs.length == 0
-    # NO ZIP @game_zip.find_volunteer_opportunities if @game_zip.volunteer_opportunities.length == 0
+    @game_zip.find_volunteer_opportunities if @game_zip.volunteer_opportunities.length == 0
     # @game_zip.save
 
     respond_to do |format|
