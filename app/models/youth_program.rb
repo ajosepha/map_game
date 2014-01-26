@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class YouthProgram < ActiveRecord::Base
   attr_accessible :program, :agency, :site_name, :grade_level_age_group, :address, :zip, :longitude, :latitude, :game_zip
   belongs_to :game_zip
@@ -11,8 +13,9 @@ class YouthProgram < ActiveRecord::Base
           if outer_key == "location_1"
             outer_value.each do |inner_key, inner_value|
               if inner_key == "human_address"
-                temp["zip"] == human_address["zip"]
-                temp["address"] == human_address["address"]
+                address_hash = JSON.parse(inner_value)
+                temp["zip"] = address_hash["zip"]
+                temp["address"] = address_hash["address"]
               else
                 unless inner_key.nil?
                   temp[inner_key] = inner_value if YouthProgram.column_names.include?(inner_key)
