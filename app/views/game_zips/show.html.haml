@@ -8,10 +8,39 @@
 %p
   %b Cultural Organizations:
   %ul
-  - @game_zip.cultural_organizations.each do|org|
+  - if @game_zip.cultural_organizations.length == 0
+    None
+  - else 
+    - @game_zip.cultural_organizations.each do|org|
+      %li
+        = org.organization_name
+        = org.discipline_code
+%p
+  %b Community Health Centers:
+  %ul
+  - if @game_zip.community_health_centers.length == 0
     %li
-      = org.organization_name
-      = org.discipline_code
+      Sorry
+  - else
+    -@game_zip.community_health_centers.each do |center|
+      %li
+        = center.name_of_center
+
+%p
+  %b Complaints:
+  %ul
+  - if @game_zip.complaints.length == 0
+    %li
+      Yay, everyone is happy!
+  - else
+    -@game_zip.complaints.each do |complaint|
+      %li
+        = complaint.complaint_type
+        %br
+        = complaint.descriptor
+        %br
+        = complaint.incident_address
+        %br
 
 
 -# = link_to 'Edit', edit_game_zip_path(@game_zip)

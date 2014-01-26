@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124150231) do
+ActiveRecord::Schema.define(:version => 20140126200017) do
 
   create_table "community_health_centers", :force => true do |t|
     t.string   "name_of_center"
@@ -66,13 +66,15 @@ ActiveRecord::Schema.define(:version => 20140124150231) do
   end
 
   create_table "gardens", :force => true do |t|
-    t.string "garden_name"
-    t.string "address"
-    t.string "neighborhoodname"
-    t.string "boro"
-    t.float  "size"
-    t.float  "latitude"
-    t.float  "longitude"
+    t.string   "garden_name"
+    t.string   "address"
+    t.string   "neighborhoodname"
+    t.string   "boro"
+    t.float    "size"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "gov_jobs", :force => true do |t|
@@ -108,6 +110,31 @@ ActiveRecord::Schema.define(:version => 20140124150231) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "street_address"
+    t.integer  "zip"
+    t.string   "cuisine"
+    t.datetime "inspection_date"
+    t.string   "violation"
+    t.string   "current_grade"
+    t.integer  "game_zip_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "senior_centers", :force => true do |t|
+    t.string   "program_name"
+    t.string   "sponsor_name"
+    t.string   "program_address"
+    t.integer  "program_zipcode"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "game_zip_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "start_up_jobs", :force => true do |t|
     t.string   "company_name"
     t.string   "address"
@@ -131,11 +158,28 @@ ActiveRecord::Schema.define(:version => 20140124150231) do
 
   create_table "volunteer_opportunities", :force => true do |t|
     t.string   "title"
-    t.string   "human_address"
+    t.string   "org_title"
+    t.string   "address"
+    t.integer  "zip"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "game_zip_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "youth_programs", :force => true do |t|
+    t.string   "program"
+    t.string   "agency"
+    t.string   "site_name"
+    t.string   "grade_level_age_group"
+    t.string   "address"
+    t.integer  "zip"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "game_zip_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
 end
