@@ -55,6 +55,7 @@ class GameZip < ActiveRecord::Base
     local_centers.each do |center|
       self.senior_centers << center
     end
+  end
 
   def find_start_up_jobs
     local_jobs = StartUpJob.where(:zip => zip).to_a
