@@ -15,6 +15,7 @@
       %li
         = org.organization_name
         = org.discipline_code
+
 %p
   %b Community Health Centers:
   %ul
@@ -46,21 +47,41 @@
   %b NYC StartUp Jobs:
   %ul
   -if @game_zip.start_up_jobs.length == 0
-    %li
-      Looks like there are no NYC start up companies for you here.
+    Looks like there are no NYC start up companies for you here.
   -else
     -@game_zip.start_up_jobs.each do |job|
       %li
       = job.company_name
-      %br
       = job.address
-      %br
       = job.hiring
-      %br
+
 
 %p 
   %b Restaurants:
   %ul
+  -if @game_zip.restaurants.length == 0
+    Sucks for you, you're in a food desert!
+  -else
+    -@game_zip.restaurants.each do |place|
+      %li
+      = place.name.capitalize + ","
+      = place.street_address + ","
+      = place.current_grade + ","
+      = place.violation
+
+%p 
+  %b Youth Programs:
+  %ul
+  -if @game_zip.youth_programs.length == 0
+    You don't have any youth programs in your zip code, hope you don't have any rowdy young'uns!
+  -else
+    %li
+    -game_zip.youth_programs.each do |element|
+      = element.address
+  
+      
+    
+
 
 
 
