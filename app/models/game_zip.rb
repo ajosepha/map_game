@@ -36,6 +36,22 @@ class GameZip < ActiveRecord::Base
     YouthProgram.make_youth_programs if YouthProgram.first.class == NilClass
   end
 
+  def find_features
+    self.find_community_health_centers if self.community_health_centers.length == 0
+    # TOO SLOW self.find_complaints if self.complaints.length == 0
+    self.find_cultural_organizations if self.cultural_organizations.length == 0
+    # # NO ZIP self.find_gardens if self.gardens.length == 0
+    # # NO ZIP self.find_gov_jobs if self.gov_jobs.length == 0
+    self.find_licensed_businesses if self.licensed_businesses.length == 0
+    # # NO ZIP self.find_recycling_bins if self.recycling_bins.length == 0
+    self.find_restaurants if self.restaurants.length == 0
+    self.find_senior_centers if self.senior_centers.length == 0
+    self.find_start_up_jobs if self.start_up_jobs.length == 0
+    self.find_volunteer_opportunities if self.volunteer_opportunities.length == 0
+     self.find_youth_programs if self.youth_programs.length == 0
+
+  end
+
   def find_cultural_organizations
     local_orgs = CulturalOrganization.where(:zip_code => zip).to_a
     local_orgs.each do |org|
