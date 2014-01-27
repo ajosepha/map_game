@@ -51,9 +51,10 @@
   -else
     -@game_zip.start_up_jobs.each do |job|
       %li
-      = job.company_name
-      = job.address
-      = job.hiring
+        = job.company_name
+        = job.address
+        = job.hiring
+
 
 
 %p 
@@ -64,10 +65,33 @@
   -else
     -@game_zip.restaurants.each do |place|
       %li
-      = place.name.capitalize + ","
-      = place.street_address + ","
-      = place.current_grade + ","
-      = place.violation
+        = place.name.capitalize + ","
+        = place.street_address + ","
+        = place.current_grade + ","
+        = place.violation
+
+%p 
+  %b Youth Programs:
+  %ul
+  -if @game_zip.youth_programs == 0
+    Hope you don't have kids, there aren't any youth programs in your zip code!
+  -else
+    -@game_zip.youth_programs.each do |item|
+      %li
+        = item.program + ","
+        = item.address + ","
+        = item.agency
+
+%p 
+  %b Licensed Businesses:
+  %ul
+  -if @game_zip.licensed_businesses == 0
+    How is this possible? A purely residential zip code?
+  -else
+    -@game_zip.licensed_businesses.each do |place|
+      %li
+        =place.business_name.capitalize + ","
+        =place.industry.capitalize
 
 
   
