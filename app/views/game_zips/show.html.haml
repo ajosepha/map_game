@@ -85,7 +85,7 @@
 %p 
   %b Licensed Businesses:
   %ul
-  -if @game_zip.licensed_businesses == 0
+  -if @game_zip.licensed_businesses.length == 0
     How is this possible? A purely residential zip code?
   -else
     -@game_zip.licensed_businesses.each do |place|
@@ -94,7 +94,20 @@
         =place.industry.capitalize
 
 
-  
+%p 
+  %b Volunteer Opportunties
+  %ul
+  -if @game_zip.volunteer_opportunities.length == 0
+    Nope
+  -else
+    -@game_zip.volunteer_opportunities.each do |thing|
+      %li
+        =thing.title + ","
+        =thing.org_title + ","
+        =thing.address
+
+
+
       
     
 
