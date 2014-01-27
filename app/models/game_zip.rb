@@ -26,7 +26,7 @@ class GameZip < ActiveRecord::Base
 
   def populate_tables
     CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
-    # TOO SLOW Complaint.make_complaints if Complaint.first.class == NilClass
+    ## TOO SLOW Complaint.make_complaints if Complaint.first.class == NilClass
     CulturalOrganization.make_cultural_organizations if CulturalOrganization.first.class == NilClass
     LicensedBusiness.make_licensed_businesses if LicensedBusiness.first.class == NilClass
     Restaurant.make_restaurants if Restaurant.first.class == NilClass
@@ -36,9 +36,10 @@ class GameZip < ActiveRecord::Base
     YouthProgram.make_youth_programs if YouthProgram.first.class == NilClass
   end
 
+
   def find_features
     self.find_community_health_centers if self.community_health_centers.length == 0
-    # TOO SLOW self.find_complaints if self.complaints.length == 0
+    ##self.find_complaints if self.complaints.length == 0
     self.find_cultural_organizations if self.cultural_organizations.length == 0
     # # NO ZIP self.find_gardens if self.gardens.length == 0
     # # NO ZIP self.find_gov_jobs if self.gov_jobs.length == 0
