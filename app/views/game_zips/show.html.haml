@@ -66,7 +66,7 @@
     -@game_zip.restaurants.each do |place|
       %li
         = place.name.titleize + ","
-        = place.street_address + ","
+        = place.street_address.titleize + ","
         = place.current_grade + ","
         = place.violation
 
