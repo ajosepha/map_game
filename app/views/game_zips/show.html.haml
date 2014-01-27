@@ -26,21 +26,42 @@
       %li
         = center.name_of_center
 
-%p
-  %b Complaints:
-  %ul
-  - if @game_zip.complaints.length == 0
-    %li
-      Yay, everyone is happy!
-  - else
-    -@game_zip.complaints.each do |complaint|
+/
+  %p
+    %b Complaints:
+    %ul
+    - if @game_zip.complaints.length == 0
       %li
-        = complaint.complaint_type
-        %br
-        = complaint.descriptor
-        %br
-        = complaint.incident_address
-        %br
+        Yay, everyone is happy!
+    - else
+      -@game_zip.complaints.each do |complaint|
+        %li
+          = complaint.complaint_type
+          %br
+          = complaint.descriptor
+          %br
+          = complaint.incident_address
+          %br
+%p
+  %b NYC StartUp Jobs:
+  %ul
+  -if @game_zip.start_up_jobs.length == 0
+    %li
+      Looks like there are no NYC start up companies for you here.
+  -else
+    -@game_zip.start_up_jobs.each do |job|
+      %li
+      = job.company_name
+      %br
+      = job.address
+      %br
+      = job.hiring
+      %br
+
+%p 
+  %b Restaurants:
+  %ul
+
 
 
 -# = link_to 'Edit', edit_game_zip_path(@game_zip)
