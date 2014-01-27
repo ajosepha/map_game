@@ -69,15 +69,7 @@
       = place.current_grade + ","
       = place.violation
 
-%p 
-  %b Youth Programs:
-  %ul
-  -if @game_zip.youth_programs.length == 0
-    You don't have any youth programs in your zip code, hope you don't have any rowdy young'uns!
-  -else
-    %li
-    -game_zip.youth_programs.each do |element|
-      = element.address
+
   
       
     
