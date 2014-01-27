@@ -95,7 +95,7 @@
 
 
 %p 
-  %b Volunteer Opportunties
+  %b Volunteer Opportunties:
   %ul
   -if @game_zip.volunteer_opportunities.length == 0
     Nope
@@ -105,6 +105,17 @@
         =thing.title + ","
         =thing.org_title + ","
         =thing.address
+
+%p
+  %b Senior Centers:
+  %ul
+  -if @game_zip.senior_centers.length == 0
+    None
+  -else
+    -@game_zip.senior_centers.each do |thing|
+      %li
+        =thing.program_name.capitalize + ","
+        =thing.sponsor_name.capitalize
 
 
 
