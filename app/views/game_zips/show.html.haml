@@ -13,15 +13,15 @@
   - else 
     - @game_zip.cultural_organizations.each do|org|
       %li
-        = org.organization_name
-        = org.discipline_code
+        = org.organization_name + ","
+        = org.discipline_code + ","
+        =# org.human_address.delete "city"
 
 %p
   %b Community Health Centers:
   %ul
   - if @game_zip.community_health_centers.length == 0
-    %li
-      Sorry
+    Sorry
   - else
     -@game_zip.community_health_centers.each do |center|
       %li
@@ -51,9 +51,9 @@
   -else
     -@game_zip.start_up_jobs.each do |job|
       %li
-        = job.company_name
-        = job.address
-        = job.hiring
+        = job.company_name.titleize
+        = job.address.titleize
+        = job.hiring.titleize
 
 
 
@@ -65,7 +65,7 @@
   -else
     -@game_zip.restaurants.each do |place|
       %li
-        = place.name.capitalize + ","
+        = place.name.titleize + ","
         = place.street_address + ","
         = place.current_grade + ","
         = place.violation
@@ -90,8 +90,8 @@
   -else
     -@game_zip.licensed_businesses.each do |place|
       %li
-        =place.business_name.capitalize + ","
-        =place.industry.capitalize
+        =place.business_name.titleize + ","
+        =place.industry.titleize
 
 
 %p 
@@ -114,8 +114,8 @@
   -else
     -@game_zip.senior_centers.each do |thing|
       %li
-        =thing.program_name.capitalize + ","
-        =thing.sponsor_name.capitalize
+        =thing.program_name.titleize + ","
+        =thing.sponsor_name.titleize
 
 
 
