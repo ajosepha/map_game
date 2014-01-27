@@ -24,6 +24,9 @@ class GameZipsController < ApplicationController
       else
       @game_zip = GameZip.where(:zip => params[:zip]).first
     end
+    #@game_zip = GameZip.find(params[:zip])
+
+
     CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
     @game_zip.find_community_health_centers if @game_zip.community_health_centers.length == 0
     # TOO SLOW Complaint.make_complaints if Complaint.first.class == NilClass
@@ -55,6 +58,11 @@ class GameZipsController < ApplicationController
 
   def error
   end
+
+  def index
+    @game_zips = GameZip.all
+  end
+
 
   # GET /game_zips/new
   # GET /game_zips/new.json
