@@ -24,29 +24,20 @@ class GameZipsController < ApplicationController
       else
       @game_zip = GameZip.where(:zip => params[:zip]).first
     end
-    #@game_zip = GameZip.find(params[:zip])
 
+    @game_zip.populate_tables
 
-    CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
     @game_zip.find_community_health_centers if @game_zip.community_health_centers.length == 0
-    # TOO SLOW Complaint.make_complaints if Complaint.first.class == NilClass
     # TOO SLOW @game_zip.find_complaints if @game_zip.complaints.length == 0
-    CulturalOrganization.make_cultural_organizations if CulturalOrganization.first.class == NilClass
     @game_zip.find_cultural_organizations if @game_zip.cultural_organizations.length == 0
     # # NO ZIP @game_zip.find_gardens if @game_zip.gardens.length == 0
     # # NO ZIP @game_zip.find_gov_jobs if @game_zip.gov_jobs.length == 0
-    LicensedBusiness.make_licensed_businesses if LicensedBusiness.first.class == NilClass
     @game_zip.find_licensed_businesses if @game_zip.licensed_businesses.length == 0
     # # NO ZIP @game_zip.find_recycling_bins if @game_zip.recycling_bins.length == 0
-    Restaurant.make_restaurants if Restaurant.first.class == NilClass
     @game_zip.find_restaurants if @game_zip.restaurants.length == 0
-    SeniorCenter.make_senior_centers if SeniorCenter.first.class == NilClass
     @game_zip.find_senior_centers if @game_zip.senior_centers.length == 0
-    StartUpJob.make_start_up_jobs if StartUpJob.first.class == NilClass
     @game_zip.find_start_up_jobs if @game_zip.start_up_jobs.length == 0
-    VolunteerOpportunity.make_volunteer_opportunities if VolunteerOpportunity.first.class == NilClass
     @game_zip.find_volunteer_opportunities if @game_zip.volunteer_opportunities.length == 0
-    YouthProgram.make_youth_programs if YouthProgram.first.class == NilClass
      @game_zip.find_youth_programs if @game_zip.youth_programs.length == 0
     # @game_zip.save
 

@@ -24,6 +24,18 @@ class GameZip < ActiveRecord::Base
   end
 
 
+  def populate_tables
+    CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
+    # TOO SLOW Complaint.make_complaints if Complaint.first.class == NilClass
+    CulturalOrganization.make_cultural_organizations if CulturalOrganization.first.class == NilClass
+    LicensedBusiness.make_licensed_businesses if LicensedBusiness.first.class == NilClass
+    Restaurant.make_restaurants if Restaurant.first.class == NilClass
+    SeniorCenter.make_senior_centers if SeniorCenter.first.class == NilClass
+    StartUpJob.make_start_up_jobs if StartUpJob.first.class == NilClass
+    VolunteerOpportunity.make_volunteer_opportunities if VolunteerOpportunity.first.class == NilClass
+    YouthProgram.make_youth_programs if YouthProgram.first.class == NilClass
+  end
+
   def find_cultural_organizations
     local_orgs = CulturalOrganization.where(:zip_code => zip).to_a
     local_orgs.each do |org|
