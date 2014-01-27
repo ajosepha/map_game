@@ -19,12 +19,12 @@ class GameZipsController < ApplicationController
   # GET /game_zips/1
   # GET /game_zips/1.json
   def show
-    if GameZip.where(:zip => params[:zip]).length == 0
-      @game_zip = GameZip.create(:zip => params[:zip])
-      else
-      @game_zip = GameZip.where(:zip => params[:zip]).first
-    end
-    #@game_zip = GameZip.find(params[:zip])
+    # if GameZip.where(:zip => params[:zip]).length == 0
+    #   @game_zip = GameZip.create(:zip => params[:zip])
+    #   else
+    #   @game_zip = GameZip.where(:zip => params[:zip]).first
+    # end
+    @game_zip = GameZip.find(params[:zip])
 
 
     CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
@@ -60,7 +60,7 @@ class GameZipsController < ApplicationController
   end
 
   def index
-    @game_zips = GameZip.all
+    @game_zip = GameZip.new
   end
 
 
