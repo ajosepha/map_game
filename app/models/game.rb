@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   belongs_to :user
-  belongs_to :game_zip
+  has_many :game_zips
 
   attr_reader :cultural_organizations, :community_health_centers
 
