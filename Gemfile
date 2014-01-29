@@ -9,13 +9,18 @@ gem 'titleize'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
-
 group :development, :test  do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
+  gem 'factory_girl_rails'
 end
 
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
