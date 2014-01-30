@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 
   attr_accessible :status_community_health_centers, :status_complaints, :status_cultural_organizations,
   :status_gardens, :status_gov_jobs, :status_licensed_businesses, :status_recycling_bins, :status_restaurants, :status_senior_centers,
-  :status_start_up_jobs, :status_volunteer_opportunities, :status_youth_programs, :money, :points, :game_zip_id
+  :status_start_up_jobs, :status_volunteer_opportunities, :status_youth_programs, :money, :points, :game_zip_id, :user_id
   
   #has to run after game_zip.find_features
   def find_status

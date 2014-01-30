@@ -1,14 +1,20 @@
 MapGame::Application.routes.draw do
 
+resources :users do
+  resources :games
+end
+
+
   # resources :game_zips
   
-  get "/game_zips", to: "game_zips#index"
-  get "/game_zips/error", to: "game_zips#error"
-  get "/game_zips/:zip", to: "game_zips#show"
+  # get "/games/param[:id]", to: "game#show"
+  # get "/game_zips", to: "game_zips#index"
+  # get "/game_zips/error", to: "game_zips#error"
+  # get "/game_zips/:zip", to: "game_zips#show"
 
 
 
-  get "/users/new", to: "users#new"
+  # get "/users/new", to: "users#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
