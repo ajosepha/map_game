@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140126200017) do
+ActiveRecord::Schema.define(:version => 20140129164013) do
 
   create_table "community_health_centers", :force => true do |t|
     t.string   "name_of_center"
@@ -61,8 +61,20 @@ ActiveRecord::Schema.define(:version => 20140126200017) do
     t.integer  "money"
     t.integer  "game_zip_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "status_community_health_centers"
+    t.integer  "status_complaints"
+    t.integer  "status_cultural_organizations"
+    t.integer  "status_gardens"
+    t.integer  "status_gov_jobs"
+    t.integer  "status_licensed_businesses"
+    t.integer  "status_recycling_bins"
+    t.integer  "status_restaurants"
+    t.integer  "status_senior_centers"
+    t.integer  "status_start_up_jobs"
+    t.integer  "status_volunteer_opportunities"
+    t.integer  "status_youth_programs"
   end
 
   create_table "gardens", :force => true do |t|
@@ -158,14 +170,11 @@ ActiveRecord::Schema.define(:version => 20140126200017) do
 
   create_table "volunteer_opportunities", :force => true do |t|
     t.string   "title"
-    t.string   "org_title"
-    t.string   "address"
-    t.integer  "zip"
+    t.string   "human_address"
     t.float    "longitude"
     t.float    "latitude"
-    t.integer  "game_zip_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "youth_programs", :force => true do |t|
@@ -180,6 +189,12 @@ ActiveRecord::Schema.define(:version => 20140126200017) do
     t.integer  "game_zip_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+  end
+
+  create_table "zips", :force => true do |t|
+    t.integer  "zip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

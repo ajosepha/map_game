@@ -1,5 +1,5 @@
-<h1><%= "Hello #{@user} pick a zip!"%></h1>
-<form action="/users/<%=@user.id%>/games/create" method="POST">
+<h1><%= "Hello #{@user.user_name}, pick a zip!"%></h1>
+<form action="/users/<%=@user.id%>/games" method="POST">
   <label for="game_zip">Zip codes:</label>
   <select id="game_zip" type = "select" name="game_zip">
   <% GameZip::NYCZIPS.each do |zip| %>
