@@ -25,5 +25,9 @@ class GamesController < ApplicationController
       redirect_to(action: 'show', id: @game.id, status: 302)
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
 
 end

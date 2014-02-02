@@ -1,0 +1,9 @@
+<h1>Games#edit</h1>
+<p>Find me in app/views/games/edit.html.erb</p>
+
+
+
+ <%= form_for @game do |t| %>
+     <%= t.hidden_field :money, :value=> 500 %>
+     <%= t.submit "I would like 500 dollars! " %>
+   <% end %>
