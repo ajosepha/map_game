@@ -15,7 +15,7 @@ class GamesController < ApplicationController
             :game_zip_id => GameZip.where(:zip => params[:game_zip]).first.id)
     @game.save
  
-    render "show"
+    redirect_to action: 'show', status: 302
   end
 
 end
