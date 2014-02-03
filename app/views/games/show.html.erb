@@ -11,18 +11,25 @@
 <!--This will be moved to the form eventually. -->
  <h2> Your zipcode has the following features</h2>
   <%a = GameZip.where(:zip => your_zip).first %>
+  <% a.senior_centers %>
   <% @game.find_status %>
 
-  <div class = "health_centers">
-    <% if @game.status_community_health_centers == 0 %>
-      <%="You can buy community health centers" %>
-    <% elsif @game.status_community_health_centers == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought community health centers!"%>
-    <%end %>
-  </div>
+  <div class = "card">
+    <div class = "health_centers">
+      <% if @game.status_community_health_centers == 0 %>
+        <%="You can buy community health centers" %>
+      <% elsif @game.status_community_health_centers == -1 %>
+        <%="This feature is not available in your zip code" %>
+      <% else %>
+        <%="Congrats! You bought community health centers!"%>
+      <%end %>
 
+    <div class = "health_centers_zip">
+    </div>
+  </div>
+</div>
+  
+  <div class = "card">
   <div class = "cultural_organizations">
     <% if @game.status_cultural_organizations == 0 %>
       <%="You can buy cultural organizations" %>
@@ -32,7 +39,9 @@
       <%="Congrats! You bought cultural organizations"%>
     <%end %>
   </div>
+</div>
 
+  <div class = "card">
   <div class = "licensed_businesses">
     <% if @game.status_licensed_businesses == 0 %>
       <%="You can buy licensed businesses" %>
@@ -42,7 +51,9 @@
       <%="Congrats! You bought licensed businesses"%>
     <%end %>
   </div>
+</div>
 
+  <div class = "card">
   <div class= "restaurants">
     <% if @game.status_restaurants == 0 %>
       <%="You can buy restaurants" %>
@@ -52,7 +63,9 @@
       <%="Congrats! You bought restaurants"%>
     <%end %>
   </div>
+</div>
 
+<div class = "card">
   <div class = "senior_centers">
     <% if @game.status_senior_centers == 0 %>
       <%="You can buy senior centers" %>
@@ -62,6 +75,7 @@
       <%="Congrats! You bought senior centers"%>
     <%end %>
   </div>
+</div>
 
   <div class= "volunteer_opportunities">
     <% if @game.status_volunteer_opportunities == 0 %>
@@ -73,6 +87,7 @@
     <%end %>
   </div>
 
+  <div class = "card">
   <div class = "youth programs">
     <% if @game.status_youth_programs == 0 %>
       <%="You can buy youth programs" %>
@@ -82,6 +97,8 @@
       <%="Congrats! You bought youth programs"%>
     <%end %>
   </div>
+
+</div>
  
 
 <button>
