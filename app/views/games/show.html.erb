@@ -1,8 +1,18 @@
+
+
 <h2>Game_zip_id <%zip_id = @game.game_zip_id%><%=zip_id%></h2>
 <h2>Game_id = <%= @game.id%></h2>
 <h2>User_id is <%= @game.user_id%></h2>
 <p></p>
  <h1> You are playing as <%=GameZip.find(zip_id).zip %></h1>
+ <% your_zip = GameZip.find(zip_id).zip%>
+
+
+ <h2> Your zipcode has the following features</h2>
+ <%a = GameZip.where(:zip => your_zip) %>
+ <%= a.find_features %>
+ 
+
 <button>
   <%= link_to "Make some money!", edit_user_game_path(@game.id) %>
 </button>
