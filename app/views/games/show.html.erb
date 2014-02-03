@@ -13,7 +13,16 @@
   <%a = GameZip.where(:zip => your_zip).first %>
   <%= a.senior_centers %>
   <%=@game.find_status %>
-  <%= @game.inspect %>
+  <% @game.inspect %>
+  <div class = "health centers status">
+    <% if @game.status_community_health_centers == 0 %>
+      <%="You can buy community health centers" %>
+    <% elsif @game.status_community_health_centers == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bough community health centers!"%>
+    <%end %>
+  </div>
  
 
 <button>
