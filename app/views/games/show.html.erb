@@ -11,16 +11,75 @@
 <!--This will be moved to the form eventually. -->
  <h2> Your zipcode has the following features</h2>
   <%a = GameZip.where(:zip => your_zip).first %>
-  <%= a.senior_centers %>
-  <%=@game.find_status %>
-  <% @game.inspect %>
-  <div class = "health centers status">
+  <% @game.find_status %>
+
+  <div class = "health_centers">
     <% if @game.status_community_health_centers == 0 %>
       <%="You can buy community health centers" %>
     <% elsif @game.status_community_health_centers == -1 %>
       <%="This feature is not available in your zip code" %>
     <% else %>
-      <%="Congrats! You bough community health centers!"%>
+      <%="Congrats! You bought community health centers!"%>
+    <%end %>
+  </div>
+
+  <div class = "cultural_organizations">
+    <% if @game.status_cultural_organizations == 0 %>
+      <%="You can buy cultural organizations" %>
+    <% elsif @game.status_cultural_organizations == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bought cultural organizations"%>
+    <%end %>
+  </div>
+
+  <div class = "licensed_businesses">
+    <% if @game.status_licensed_businesses == 0 %>
+      <%="You can buy licensed businesses" %>
+    <% elsif @game.status_licensed_businesses == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bought licensed businesses"%>
+    <%end %>
+  </div>
+
+  <div class= "restaurants">
+    <% if @game.status_restaurants == 0 %>
+      <%="You can buy restaurants" %>
+    <% elsif @game.status_restaurants == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bought restaurants"%>
+    <%end %>
+  </div>
+
+  <div class = "senior_centers">
+    <% if @game.status_senior_centers == 0 %>
+      <%="You can buy senior centers" %>
+    <% elsif @game.status_senior_centers == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bought senior centers"%>
+    <%end %>
+  </div>
+
+  <div class= "volunteer_opportunities">
+    <% if @game.status_volunteer_opportunities == 0 %>
+      <%="You can buy volunteer opportunities" %>
+    <% elsif @game.status_volunteer_opportunities == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bought volunteer opportunities"%>
+    <%end %>
+  </div>
+
+  <div class = "youth programs">
+    <% if @game.status_youth_programs == 0 %>
+      <%="You can buy youth programs" %>
+    <% elsif @game.status_youth_programs == -1 %>
+      <%="This feature is not available in your zip code" %>
+    <% else %>
+      <%="Congrats! You bought youth programs"%>
     <%end %>
   </div>
  
