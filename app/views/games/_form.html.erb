@@ -1,0 +1,6 @@
+<%= form_for [@user, @game] do |f| %>
+  <div class = "field">
+   <%= f.hidden_field :money, :value=> 500 %>
+   <%= f.submit "I would like 500 dollars!" %>
+  </div>
+<% end %>
