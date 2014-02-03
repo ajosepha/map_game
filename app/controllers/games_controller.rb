@@ -39,17 +39,11 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @user = User.find(params[:user_id])
-    @game.money = @game.money + params[:game][:money].to_i
-    redirect_to(action: 'show', id: @game.id, status: 302)
+    @game.money += params[:game][:money].to_i
+    render 'show'
   end
 
   def destroy
-  end
-
-
-
-
-  def update
   end
 
 
