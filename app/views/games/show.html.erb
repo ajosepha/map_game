@@ -11,7 +11,7 @@
 <!--This will be moved to the form eventually. -->
  <h2> Your zipcode has the following features</h2>
   <%a = GameZip.where(:zip => your_zip).first %>
-  <% a.senior_centers %>
+
   <% @game.find_status %>
 
   <div class = "card">
@@ -23,6 +23,7 @@
       <% else %>
         <%="Congrats! You bought community health centers!"%>
       <%end %>
+
 
     <div class = "health_centers_zip">
     </div>
@@ -73,6 +74,13 @@
       <%="This feature is not available in your zip code" %>
     <% else %>
       <%="Congrats! You bought senior centers"%>
+    <%end %>
+  </div>
+  <div class="show_senior_centers">
+    <ul>
+     <% a.senior_centers.each do |center| %>
+      <li><%= center.program_name.titleize %></li>
+      <%= center.program_address.titleize %>
     <%end %>
   </div>
 </div>
