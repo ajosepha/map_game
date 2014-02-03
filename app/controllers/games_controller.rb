@@ -15,6 +15,8 @@ class GamesController < ApplicationController
     unless @repeat_flag
       @game = Game.new(:user_id => params[:user_id], :game_zip_id => GameZip.where(:zip => params[:game_zip]).first.id, :money => 0, :points => 0)
       @game.save
+      @game.game_zip.find_features
+      @game.find_status
     end
       redirect_to(action: 'show', id: @game.id, status: 302)
   end

@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20140129164013) do
     t.float    "size"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "zip"
+    t.integer  "game_zip_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -170,11 +172,14 @@ ActiveRecord::Schema.define(:version => 20140129164013) do
 
   create_table "volunteer_opportunities", :force => true do |t|
     t.string   "title"
-    t.string   "human_address"
+    t.string   "org_title"
+    t.string   "address"
+    t.integer  "zip"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "game_zip_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "youth_programs", :force => true do |t|
@@ -189,12 +194,6 @@ ActiveRecord::Schema.define(:version => 20140129164013) do
     t.integer  "game_zip_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
-  end
-
-  create_table "zips", :force => true do |t|
-    t.integer  "zip"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end

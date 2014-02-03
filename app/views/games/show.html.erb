@@ -8,13 +8,15 @@
  <h1> You are playing as <%=GameZip.find(zip_id).zip %></h1>
  <% your_zip = GameZip.find(zip_id).zip%>
 
-
+<!--This will be moved to the form eventually. -->
  <h2> Your zipcode has the following features</h2>
- <%a = GameZip.where(:zip => your_zip) %>
- <%= a.find_features %>
+  <%a = GameZip.where(:zip => your_zip).first %>
+  <%= a.senior_centers %>
+  <%=@game.find_status %>
+  <%= @game.inspect %>
  
 
 <button>
-  <%= link_to "Make some money!", edit_user_game_path(@game.id, @game.id) %>
+  <%= link_to "Make some money!", edit_user_game_path(@user.id, @game.id) %>
 </button>
 
