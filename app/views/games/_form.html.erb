@@ -1,6 +1,11 @@
 <%= form_for [@user, @game] do |f| %>
   <div class = "field">
    <%= f.hidden_field :money, :value=> 500 %>
+   <%=label_tag 'Is Manhattan an island?' %><br/>
+   <%= radio_button_tag(:value, "true") %>
+   <%= label_tag(:value_true, 'true') %>
+   <%= radio_button_tag(:value, "false") %>
+   <%=label_tag(:value_false, "false") %>
    <%= f.submit "I would like 500 dollars!" %>
   </div>
 <% end %>

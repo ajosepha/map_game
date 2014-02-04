@@ -14,8 +14,10 @@
 
   <% @game.find_status %>
 
-  <div class = "card">
-    <div class = "status">
+  <div class = "container">
+
+  <div class = "row">
+    <div class = "col-md-4">
       <% if @game.status_community_health_centers == 0 %>
         <%="You can buy community health centers" %>
       <% elsif @game.status_community_health_centers == 1 %>
@@ -23,18 +25,19 @@
       <% else %>
         <%="This zip has no Community Health Centers" %>
       <%end %>
-    <div class = "elements">
+    </div>
+    <div class = "col-md-8">
       <ul>
-        <li>
-        <%= a.community_health_centers%>
+        <% a.community_health_centers.each do |center| %>
+         <li> <%=center.name_of_center%>
+        <% end %>
         </li>
       </ul>
-    </div>
   </div>
 </div>
   
-  <div class = "card">
-  <div class = "status">
+  <div class = "row">
+  <div class = "col-md-4">
     <% if @game.status_cultural_organizations == 0 %>
       <%="You can buy cultural organizations" %>
     <% elsif @game.status_cultural_organizations == -1 %>
@@ -43,7 +46,7 @@
       <%="Congrats! You bought cultural organizations"%>
     <%end %>
   </div>
-  <div class = "elements">
+  <div class = "col-md-8">
     <ul>
     <% a.cultural_organizations.each do |center| %>
       <li><%= center.organization_name %>
@@ -85,8 +88,8 @@
     </div>
     <div class = "elements">
       <ul>
-        <li><%a.restaurants.each do |place| %>
-            <%=place.name.titleize %>
+        <%a.restaurants.each do |place| %>
+          <li><%=place.name.titleize %>
             <%=place.cuisine.titleize %></li>
           <%end %>
       </ul>
@@ -150,6 +153,7 @@
       </ul>
     </div>
   </div>
+
  
 
 <button>
