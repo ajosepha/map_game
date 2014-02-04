@@ -19,10 +19,10 @@ class Game < ActiveRecord::Base
   	else self.status_community_health_centers = 0
   	end
 
-  	# # if self.game_zip.complaints.length == 0
-  	# # 	self.status_complaints = -1
-  	# # else self.status_complaints = 0
-  	# # end
+  	if self.game_zip.complaints.length == 0
+  		self.status_complaints = -1
+  	else self.status_complaints = 0
+  	end
 
   	if self.game_zip.cultural_organizations.length == 0
   		self.status_cultural_organizations = -1
