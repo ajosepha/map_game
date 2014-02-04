@@ -40,7 +40,7 @@ NYCZIPS = [10001, 10002, 10003, 10004, 10005, 10006, 10007, 10009, 10010, 10011,
 
   def find_features
     self.find_community_health_centers if self.community_health_centers.length == 0
-    ##self.find_complaints if self.complaints.length == 0
+    self.find_complaints if self.complaints.length == 0
     self.find_cultural_organizations if self.cultural_organizations.length == 0
     # # NO ZIP self.find_gardens if self.gardens.length == 0
     # # NO ZIP self.find_gov_jobs if self.gov_jobs.length == 0
@@ -50,7 +50,7 @@ NYCZIPS = [10001, 10002, 10003, 10004, 10005, 10006, 10007, 10009, 10010, 10011,
     self.find_senior_centers if self.senior_centers.length == 0
     self.find_start_up_jobs if self.start_up_jobs.length == 0
     self.find_volunteer_opportunities if self.volunteer_opportunities.length == 0
-     self.find_youth_programs if self.youth_programs.length == 0
+    self.find_youth_programs if self.youth_programs.length == 0
 
   end
 
