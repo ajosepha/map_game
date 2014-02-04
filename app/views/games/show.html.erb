@@ -1,10 +1,5 @@
-
-
-<h2>Game_zip_id <%zip_id = @game.game_zip_id%><%=zip_id%></h2>
-<h2>Game_id = <%= @game.id%></h2>
-<h2>User_id is <%= @game.user_id%></h2>
 <h2> You have <%=@game.money %> dollars </h2>
-<h2> this is a test <%=@bool %> </h2>
+
 
 <p></p>
  <h1> You are playing as <%=GameZip.find(zip_id).zip %></h1>
@@ -15,11 +10,8 @@
   <%a = GameZip.where(:zip => your_zip).first %>
 
   <% @game.find_status %>
-
-  <div class = "container">
-
-  <div class = "row">
-    <div class = "col-md-4">
+  <div class="card">
+    <div class = "status">
       <% if @game.status_community_health_centers == 0 %>
         <%="You can buy community health centers" %>
       <% elsif @game.status_community_health_centers == 1 %>
@@ -28,35 +20,35 @@
         <%="This zip has no Community Health Centers" %>
       <%end %>
     </div>
-    <div class = "col-md-8">
+    <div class = "elements">
       <ul>
         <% a.community_health_centers.each do |center| %>
          <li> <%=center.name_of_center%>
         <% end %>
         </li>
       </ul>
+    </div>
   </div>
-</div>
   
-  <div class = "row">
-  <div class = "col-md-4">
-    <% if @game.status_cultural_organizations == 0 %>
-      <%="You can buy cultural organizations" %>
-    <% elsif @game.status_cultural_organizations == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought cultural organizations"%>
-    <%end %>
+  <div class = "card">
+    <div class = "status">
+      <% if @game.status_cultural_organizations == 0 %>
+        <%="You can buy cultural organizations" %>
+      <% elsif @game.status_cultural_organizations == -1 %>
+        <%="This feature is not available in your zip code" %>
+      <% else %>
+        <%="Congrats! You bought cultural organizations"%>
+      <%end %>
+    </div>
+    <div class = "elements">
+      <ul>
+      <% a.cultural_organizations.each do |center| %>
+        <li><%= center.organization_name %>
+            <%= center.discipline_code %> </li>
+      <% end %>
+      </ul>
+    </div>
   </div>
-  <div class = "col-md-8">
-    <ul>
-    <% a.cultural_organizations.each do |center| %>
-      <li><%= center.organization_name %>
-          <%= center.discipline_code %> </li>
-    <% end %>
-  </ul>
-  </div>
-</div>
 
   <div class = "card">
     <div class = "status">
@@ -74,7 +66,6 @@
         <li><%= business.business_name.titleize%></li>
         <% end %>
       </ul>
-
     </div>
   </div>
 
