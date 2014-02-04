@@ -15,23 +15,26 @@
   <% @game.find_status %>
 
   <div class = "card">
-    <div class = "health_centers">
+    <div class = "status">
       <% if @game.status_community_health_centers == 0 %>
         <%="You can buy community health centers" %>
-      <% elsif @game.status_community_health_centers == -1 %>
-        <%="This feature is not available in your zip code" %>
+      <% elsif @game.status_community_health_centers == 1 %>
+        <%="Congrats! You bought community health centers!" %>
       <% else %>
-        <%="Congrats! You bought community health centers!"%>
+        <%="This zip has no Community Health Centers" %>
       <%end %>
-
-
-    <div class = "health_centers_zip">
+    <div class = "elements">
+      <ul>
+        <li>
+        <%= a.community_health_centers%>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
   
   <div class = "card">
-  <div class = "cultural_organizations">
+  <div class = "status">
     <% if @game.status_cultural_organizations == 0 %>
       <%="You can buy cultural organizations" %>
     <% elsif @game.status_cultural_organizations == -1 %>
@@ -40,34 +43,58 @@
       <%="Congrats! You bought cultural organizations"%>
     <%end %>
   </div>
-</div>
-
-  <div class = "card">
-  <div class = "licensed_businesses">
-    <% if @game.status_licensed_businesses == 0 %>
-      <%="You can buy licensed businesses" %>
-    <% elsif @game.status_licensed_businesses == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought licensed businesses"%>
-    <%end %>
+  <div class = "elements">
+    <ul>
+    <% a.cultural_organizations.each do |center| %>
+      <li><%= center.organization_name %>
+          <%= center.discipline_code %> </li>
+    <% end %>
+  </ul>
   </div>
 </div>
 
   <div class = "card">
-  <div class= "restaurants">
-    <% if @game.status_restaurants == 0 %>
-      <%="You can buy restaurants" %>
-    <% elsif @game.status_restaurants == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought restaurants"%>
-    <%end %>
+    <div class = "status">
+      <% if @game.status_licensed_businesses == 0 %>
+        <%="You can buy licensed businesses" %>
+      <% elsif @game.status_licensed_businesses == -1 %>
+        <%="This feature is not available in your zip code" %>
+      <% else %>
+        <%="Congrats! You bought licensed businesses"%>
+      <%end %>
+    </div>
+    <div class = "elements">
+      <ul>
+        <%a.licensed_businesses.each do |business| %>
+        <li><%= business.business_name.titleize%></li>
+        <% end %>
+      </ul>
+
+    </div>
   </div>
-</div>
+
+  <div class = "card">
+    <div class= "status">
+      <% if @game.status_restaurants == 0 %>
+        <%="You can buy restaurants" %>
+      <% elsif @game.status_restaurants == -1 %>
+        <%="This feature is not available in your zip code" %>
+      <% else %>
+        <%="Congrats! You bought restaurants"%>
+      <%end %>
+    </div>
+    <div class = "elements">
+      <ul>
+        <li><%a.restaurants.each do |place| %>
+            <%=place.name.titleize %>
+            <%=place.cuisine.titleize %></li>
+          <%end %>
+      </ul>
+    </div>
+  </div>
 
 <div class = "card">
-  <div class = "senior_centers">
+  <div class = "status">
     <% if @game.status_senior_centers == 0 %>
       <%="You can buy senior centers" %>
     <% elsif @game.status_senior_centers == -1 %>
@@ -76,7 +103,7 @@
       <%="Congrats! You bought senior centers"%>
     <%end %>
   </div>
-  <div class="show_senior_centers">
+  <div class="elements">
     <ul>
      <% a.senior_centers.each do |center| %>
       <li><%= center.program_name.titleize %></li>
@@ -85,31 +112,49 @@
   </div>
 </div>
 
-  <div class= "volunteer_opportunities">
-    <% if @game.status_volunteer_opportunities == 0 %>
-      <%="You can buy volunteer opportunities" %>
-    <% elsif @game.status_volunteer_opportunities == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought volunteer opportunities"%>
-    <%end %>
+  <div class = "card">
+    <div class= "status">
+      <% if @game.status_volunteer_opportunities == 0 %>
+        <%="You can buy volunteer opportunities" %>
+      <% elsif @game.status_volunteer_opportunities == -1 %>
+        <%="This feature is not available in your zip code" %>
+      <% else %>
+        <%="Congrats! You bought volunteer opportunities"%>
+      <%end %>
+    </div>
+    <div class = "elements">
+      <ul>   
+      <%a.volunteer_opportunities.each do |opportunity| %>
+        <li><%= opportunity.title %>
+          <%= opportunity.org_title %></li>
+      <% end %>
+      </ul>
+    </div>
   </div>
 
   <div class = "card">
-  <div class = "youth programs">
-    <% if @game.status_youth_programs == 0 %>
-      <%="You can buy youth programs" %>
-    <% elsif @game.status_youth_programs == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought youth programs"%>
-    <%end %>
+    <div class = "status">
+      <% if @game.status_youth_programs == 0 %>
+        <%="You can buy youth programs" %>
+      <% elsif @game.status_youth_programs == -1 %>
+        <%="This feature is not available in your zip code" %>
+      <% else %>
+        <%="Congrats! You bought youth programs"%>
+      <%end %>
+    </div>
+    <div class = "elements" >
+      <ul>
+        <%a.youth_programs.each do |program| %>
+          <li><%=program.agency %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-
-</div>
  
 
 <button>
   <%= link_to "Make some money!", edit_user_game_path(@user.id, @game.id) %>
 </button>
+
+
 
