@@ -110,7 +110,9 @@ class Restaurant < ActiveRecord::Base
     desired_data = [1, 3, 4, 5, 7, 8, 10, 12]
     column_names = [:name, :street_address, :zip, :cuisine, :inspection_date, :violation, :current_grade]
 
-    File.open("#{Rails.public_path}/data/smaller_Inspections.txt").readlines.each do |line|
+    rows= File.open("#{Rails.public_path}/data/smaller_Inspections.txt").readlines
+    rows.shift
+    rows.each do |line|
       temp_array = []
       temp_hash = {}
       nil_flag = false
@@ -126,7 +128,7 @@ class Restaurant < ActiveRecord::Base
               data_element = @@cuisine[data_element]
               temp_array << data_element
             when 8
-              nil_flag = true if data_element[0..3] != "2013"
+              nil_flag = true if Time.parse(data_element) < 6.month.ago
               temp_array << data_element
             when 10
               if @@violations.include?(data_element)
