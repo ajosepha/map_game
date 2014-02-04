@@ -9,11 +9,12 @@ class Complaint < ActiveRecord::Base
     file = open('http://data.cityofnewyork.us/resource/erm2-nwe9.json')
     parsed_file = JSON.parse(file.read)
     parsed_file.each do |complaint|
+      recent = false
       complaint.each do |key, value|
+        recent = true if key == "created_date" && value[0..4] == "2014"
         complaint.delete(key) if !Complaint.column_names.include?(key)
       end
-      g = Complaint.new(complaint)
-      g.save
+      Complaint.new(complaint).save if recent
     end
   end
 
