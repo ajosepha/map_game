@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(:version => 20140129164013) do
     t.float    "size"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "zip"
-    t.integer  "game_zip_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
