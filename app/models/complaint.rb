@@ -11,7 +11,7 @@ class Complaint < ActiveRecord::Base
     parsed_file.each do |complaint|
       recent = false
       complaint.each do |key, value|
-        recent = true if key == "created_date" && value[0..4] == "2014"
+        recent = true if key == "created_date" && value[0..3] == "2014"
         complaint.delete(key) if !Complaint.column_names.include?(key)
       end
       Complaint.new(complaint).save if recent
