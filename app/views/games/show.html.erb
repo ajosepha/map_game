@@ -2,8 +2,9 @@
 
 
 <p></p>
- <h1> You are playing as <%=GameZip.find(@game.game_zip_id).zip %></h1>
- <% your_zip = GameZip.find(@game.game_zip_id).zip%>
+  <% your_zip = GameZip.find(@game.game_zip_id).zip%>
+ <h1> You are playing as <%=your_zip %></h1>
+ 
 
 <!--This will be moved to the form eventually. -->
  <h2> Your zipcode has the following features</h2>
@@ -28,6 +29,9 @@
         </li>
       </ul>
     </div>
+    <div class = "<%= @game.status_community_health_centers == 0 ? "buy" :"not_purchasable" %> "> 
+        <button type = "buy"> Buy me for $500</button>
+    </div>
   </div>
   
   <div class = "card">
@@ -48,6 +52,9 @@
       <% end %>
       </ul>
     </div>
+    <div class = "<%= @game.status_cultural_organizations == 0 ? "buy" :"not_purchasable" %> "> 
+        <button type = "buy"> Buy me for $1000</button>
+    </div>
   </div>
 
   <div class = "card">
@@ -66,6 +73,9 @@
         <li><%= business.business_name.titleize%></li>
         <% end %>
       </ul>
+    </div>
+     <div class = "<%= @game.status_licensed_businesses == 0 ? "buy" :"not_purchasable" %> "> 
+        <button type = "buy"> Buy me for $1000</button>
     </div>
   </div>
 
