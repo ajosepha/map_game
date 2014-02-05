@@ -12,19 +12,11 @@
 
   <% @game.find_status %>
   <div class="card">
-    <div class = "status">
-      <% if @game.status_community_health_centers == 0 %>
-        <%="You can buy community health centers" %>
-      <% elsif @game.status_community_health_centers == 1 %>
-        <%="Congrats! You bought community health centers!" %>
-      <% else %>
-        <%="This zip has no Community Health Centers" %>
-      <%end %>
-    </div>
+    <%= render partial: "buystatus", locals: { items: @game.status_community_health_centers} %>
     <div class = "elements">
       <ul>
         <% a.community_health_centers.each do |center| %>
-         <li> <%=center.name_of_center%>
+        <%= render partial: "community_health_centers", locals: { center: center } %>
         <% end %>
         </li>
       </ul>
@@ -34,16 +26,8 @@
     </div>
   </div>
   
-  <div class = "card">
-    <div class = "status">
-      <% if @game.status_cultural_organizations == 0 %>
-        <%="You can buy cultural organizations" %>
-      <% elsif @game.status_cultural_organizations == -1 %>
-        <%="This feature is not available in your zip code" %>
-      <% else %>
-        <%="Congrats! You bought cultural organizations"%>
-      <%end %>
-    </div>
+  <div class = "card-container">
+    <%= render partial: "buystatus", locals: { items: @game.status_cultural_organizations} %>
     <div class = "elements">
       <ul>
       <% a.cultural_organizations.each do |center| %>
@@ -58,15 +42,7 @@
   </div>
 
   <div class = "card">
-    <div class = "status">
-      <% if @game.status_licensed_businesses == 0 %>
-        <%="You can buy licensed businesses" %>
-      <% elsif @game.status_licensed_businesses == -1 %>
-        <%="This feature is not available in your zip code" %>
-      <% else %>
-        <%="Congrats! You bought licensed businesses"%>
-      <%end %>
-    </div>
+     <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses} %>
     <div class = "elements">
       <ul>
         <%a.licensed_businesses.each do |business| %>
