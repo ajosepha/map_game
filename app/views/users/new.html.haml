@@ -1,1 +1,16 @@
-%h1 HELLO glad you could make it!
+%h1 
+    Pls enter your data below.
+
+    = form_for @user do |f|
+        .user_new_form
+            =f.label :user_name
+            =f.text_field :user_name
+            =f.label :email
+            =f.text_field :email
+            =f.label :password
+            =f.password_field :password
+            =f.label :twitter
+            =f.text_field :twitter
+            <br/>
+            =f.submit "Create"
+
