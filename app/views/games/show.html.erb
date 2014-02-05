@@ -2,8 +2,8 @@
 
 
 <p></p>
- <h1> You are playing as <%=GameZip.find(zip_id).zip %></h1>
- <% your_zip = GameZip.find(zip_id).zip%>
+ <h1> You are playing as <%=GameZip.find(@game.game_zip_id).zip %></h1>
+ <% your_zip = GameZip.find(@game.game_zip_id).zip%>
 
 <!--This will be moved to the form eventually. -->
  <h2> Your zipcode has the following features</h2>
