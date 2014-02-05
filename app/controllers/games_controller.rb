@@ -15,6 +15,7 @@ class GamesController < ApplicationController
     unless @repeat_flag
       @game = Game.new(:user_id => params[:user_id], :game_zip_id => GameZip.where(:zip => params[:game_zip]).first.id, :money => 0, :points => 0)
       @game.save
+      @game.game_zip.populate_tables
       @game.game_zip.find_features
       @game.find_status
     end
@@ -39,7 +40,8 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @user = User.find(params[:user_id])
-    @game.money += params[:game][:money].to_i
+    @game.money += params[:game][:money].to_i if params[:value] == "true"
+
     render 'show'
   end
 
