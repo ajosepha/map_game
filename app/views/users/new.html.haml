@@ -2,13 +2,15 @@
     Pls enter your data below.
 
     = form_for @user do |f|
-        =f.label "Your User Name"
-        =f.text_field :user_name
-        =f.label "Email"
-        =f.text_field :email
-        =f.label "Password"
-        =f.password_field :password
-        =f.label "Twitter"
-        =f.text_field :twitter
-        =f.submit "Create"
+        .user_new_form
+            =f.label :user_name
+            =f.text_field :user_name
+            =f.label :email
+            =f.text_field :email
+            =f.label :password
+            =f.password_field :password
+            =f.label :twitter
+            =f.text_field :twitter
+            <br/>
+            =f.submit "Create"
 
