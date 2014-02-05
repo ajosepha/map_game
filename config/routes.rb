@@ -2,6 +2,7 @@ MapGame::Application.routes.draw do
 
 resources :users do
   resources :games
+  post '/games/:id/purchase', to: "games#purchase"
 end
 
 

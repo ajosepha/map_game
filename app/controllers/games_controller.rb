@@ -45,6 +45,10 @@ class GamesController < ApplicationController
     render 'show'
   end
 
+  def purchase
+    render 'broken'
+  end
+
   def destroy
   end
 
