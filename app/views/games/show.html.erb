@@ -70,15 +70,7 @@
   </div>
 
 <div class = "card">
-  <div class = "status">
-    <% if @game.status_senior_centers == 0 %>
-      <%="You can buy senior centers" %>
-    <% elsif @game.status_senior_centers == -1 %>
-      <%="This feature is not available in your zip code" %>
-    <% else %>
-      <%="Congrats! You bought senior centers"%>
-    <%end %>
-  </div>
+   <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[4]} %>
   <div class="elements">
     <ul>
      <% a.senior_centers.each do |center| %>
@@ -88,16 +80,20 @@
   </div>
 </div>
 
-  <div class = "card">
-    <div class= "status">
-      <% if @game.status_volunteer_opportunities == 0 %>
-        <%="You can buy volunteer opportunities" %>
-      <% elsif @game.status_volunteer_opportunities == -1 %>
-        <%="This feature is not available in your zip code" %>
-      <% else %>
-        <%="Congrats! You bought volunteer opportunities"%>
-      <%end %>
+<div class="card">
+    <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[5]} %>
+    <div class="elements">
+      <ul>
+        <%a.start_up_jobs.each do |job| %>
+        <li><%=job.company_name %>
+            <%=job.address %></li>
+        <%end %>
+      </ul>
     </div>
+</div>
+
+  <div class = "card">
+    <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[6]} %>
     <div class = "elements">
       <ul>   
       <%a.volunteer_opportunities.each do |opportunity| %>
@@ -109,15 +105,7 @@
   </div>
 
   <div class = "card">
-    <div class = "status">
-      <% if @game.status_youth_programs == 0 %>
-        <%="You can buy youth programs" %>
-      <% elsif @game.status_youth_programs == -1 %>
-        <%="This feature is not available in your zip code" %>
-      <% else %>
-        <%="Congrats! You bought youth programs"%>
-      <%end %>
-    </div>
+     <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[7]} %>
     <div class = "elements" >
       <ul>
         <%a.youth_programs.each do |program| %>
