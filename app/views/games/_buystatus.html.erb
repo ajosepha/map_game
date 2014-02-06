@@ -1,15 +1,14 @@
 <div class = "status">
 
   <% if items == 0 %>
-    <%="You can buy community health centers" %>
+    <%="You can buy  #{feature}" %>
   <% elsif items == 1 %>
-    <%="Congrats! You bought community health centers!" %>
+    <%="Congrats! You bought #{feature}" %>
   <% else %>
-    <%="This zip has no Community Health Centers" %>
+    <%="This zip has no #{feature}" %>
   <%end %>
 </div>
 
-<%= features %>
 
 
 <!--items renders to a fixnum, don't know how to get the value out of that-->
