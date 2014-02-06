@@ -51,9 +51,10 @@ class GamesController < ApplicationController
     if @game.money >= params[:cost].to_i
       @game.money -= params[:cost].to_i
       @game.update_attribute(params[:feature].to_sym, 1)
-      render 'win' if @game.win?
+      @game.save
+      render 'broken' if @game.win?
     end
-    render 'show'
+    render 'broken'
   end
 
   def destroy

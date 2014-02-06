@@ -73,6 +73,12 @@ class Game < ActiveRecord::Base
   end
 
   def win?
+    win = true
+    GameZip::FEATURES.each do |feature_name|
+      accessor = "status_"+feature_name
+      win = false if self.send(accessor.to_sym) == 0
+    end
+    win
   end
 end
  
