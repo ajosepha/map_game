@@ -61,8 +61,7 @@
     <div class = "elements">
       <ul>
         <%a.restaurants.each do |place| %>
-          <li><%=place.name.titleize %><br/>
-            <%=place.cuisine.titleize %></li>
+          <%=render partial: "restaurants", locals: {place: place} %>
           <%end %>
       </ul>
     </div>
@@ -73,8 +72,7 @@
   <div class="elements">
     <ul>
      <% a.senior_centers.each do |center| %>
-      <li><%= center.program_name.titleize %><br/>
-      <%= center.program_address.titleize %></li>
+      <%= render partial: "senior_centers", locals: { center: center} %>
     <%end %>
   </div>
 </div>
@@ -84,8 +82,7 @@
     <div class = "elements">
       <ul>   
       <%a.volunteer_opportunities.each do |opportunity| %>
-        <li><%= opportunity.title %><br/>
-          <%= opportunity.org_title %></li>
+       <%=render partial: "volunteer", locals: {opportunity: opportunity } %>
       <% end %>
       </ul>
     </div>
@@ -96,8 +93,7 @@
     <div class = "elements" >
       <ul>
         <%a.youth_programs.each do |program| %>
-          <li><%=program.agency %><br/>
-              <%=program.grade_level_age_group %></li>
+          <%= render partial: "youth_programs", locals: { program: program} %>
         <% end %>
       </ul>
     </div>
