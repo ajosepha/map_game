@@ -46,7 +46,16 @@ class GamesController < ApplicationController
   end
 
   def purchase
-    render 'broken'
+    @game = Game.find(params[:game_id])
+    @user = User.find(params[:user_id])
+    update_attribute = "update_#{params[:feature]}".to_sym
+    if @game.money >= params[:cost].to_i
+      @game.money -= params[:cost].to_i
+      @game.send(update_attribute)
+      #@game.save
+      render 'win' if @game.win?
+    end
+    render 'show'
   end
 
   def destroy

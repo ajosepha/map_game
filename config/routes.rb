@@ -1,10 +1,10 @@
 MapGame::Application.routes.draw do
 
 resources :users do
-  resources :games
-  post '/games/:id/purchase', to: "games#purchase"
+  resources :games do
+    post '/purchase', to: "games#purchase"
+  end
 end
-
 
   # resources :game_zips
   

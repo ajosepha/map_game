@@ -71,6 +71,13 @@ class Game < ActiveRecord::Base
 
 	self.save
   end
+
+  def update_status_cultural_organizations
+    self.status_cultural_organizations = 1
+  end
+
+  def win?
+  end
 end
  
 
