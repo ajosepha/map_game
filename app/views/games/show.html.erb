@@ -22,7 +22,7 @@
       </ul>
     </div>
     <div class = "<%= @game.status_community_health_centers == 0 ? "buy" : "not_purchasable" %>"> 
-        <button type = "buy"> Buy me for $500</button>
+      <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_community_health_centers")%>
     </div>
   </div>
   
@@ -36,7 +36,7 @@
       </ul>
     </div>
     <div class = "<%= @game.status_cultural_organizations == 0 ? "buy" : "not_purchasable" %> "> 
-      <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 500, :feature => "status_cultural_organizations")%>
+      <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_cultural_organizations")%>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
       </ul>
     </div>
      <div class = "<%= @game.status_licensed_businesses == 0 ? "buy" : "not_purchasable" %> "> 
-        <button type = "buy"> Buy me for $1000</button>
+      <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_licensed_businesses")%>
     </div>
   </div>
 
@@ -65,6 +65,9 @@
           <%end %>
       </ul>
     </div>
+     <div class = "<%= @game.status_restaurants == 0 ? "buy" : "not_purchasable" %> "> 
+      <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_restaurants")%>
+    </div>
   </div>
 
 <div class = "card">
@@ -74,6 +77,10 @@
      <% a.senior_centers.each do |center| %>
       <%= render partial: "senior_centers", locals: { center: center} %>
     <%end %>
+    </ul>
+  </div>
+   <div class = "<%= @game.status_senior_centers == 0 ? "buy" : "not_purchasable" %> "> 
+    <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_senior_centers")%>
   </div>
 </div>
 
@@ -86,6 +93,9 @@
       <% end %>
       </ul>
     </div>
+     <div class = "<%= @game.status_volunteer_opportunities == 0 ? "buy" : "not_purchasable" %> "> 
+      <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_volunteer_opportunities")%>
+    </div>
   </div>
 
   <div class = "card">
@@ -96,6 +106,9 @@
           <%= render partial: "youth_programs", locals: { program: program} %>
         <% end %>
       </ul>
+    </div>
+     <div class = "<%= @game.status_youth_programs == 0 ? "buy" : "not_purchasable" %> "> 
+  <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_youth_programs")%>
     </div>
   </div>
 

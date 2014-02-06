@@ -54,7 +54,7 @@ class GamesController < ApplicationController
       @game.save
       render 'broken' if @game.win?
     end
-    render 'broken'
+    redirect_to(action: 'show', id: @game.id, status: 302)
   end
 
   def destroy
