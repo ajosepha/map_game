@@ -1,11 +1,12 @@
 <div class = "status">
+  <%formatted_feature = feature.gsub(/_/, " ").titleize %>
 
   <% if items == 0 %>
-    <%="You can buy  #{feature}" %>
+    <%="You can buy  #{formatted_feature}" %>
   <% elsif items == 1 %>
-    <%="Congrats! You bought #{feature}" %>
+    <%="Congrats! You bought #{formatted_feature}" %>
   <% else %>
-    <%="This zip has no #{feature}" %>
+    <%="This zip has no #{formatted_feature}" %>
   <%end %>
 </div>
 
