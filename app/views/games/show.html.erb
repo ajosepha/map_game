@@ -47,7 +47,8 @@
     <div class = "elements">
       <ul>
         <%a.licensed_businesses.each do |business| %>
-        <li><%= business.business_name.titleize%></li>
+        <li><%= business.business_name.titleize%><br/>
+            </li>
         <% end %>
       </ul>
     </div>
@@ -57,12 +58,12 @@
   </div>
 
   <div class = "card">
-    <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[3]} %>
+    <%= render partial: "buystatus", locals: { items: @game.status_restaurants, :feature=> GameZip::FEATURES[3]} %>
     </div>
     <div class = "elements">
       <ul>
         <%a.restaurants.each do |place| %>
-          <li><%=place.name.titleize %>
+          <li><%=place.name.titleize %><br/>
             <%=place.cuisine.titleize %></li>
           <%end %>
       </ul>
@@ -70,34 +71,22 @@
   </div>
 
 <div class = "card">
-   <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[4]} %>
+   <%= render partial: "buystatus", locals: { items: @game.status_senior_centers, :feature=> GameZip::FEATURES[4]} %>
   <div class="elements">
     <ul>
      <% a.senior_centers.each do |center| %>
-      <li><%= center.program_name.titleize %></li>
-      <%= center.program_address.titleize %>
+      <li><%= center.program_name.titleize %><br/>
+      <%= center.program_address.titleize %></li>
     <%end %>
   </div>
 </div>
 
-<div class="card">
-    <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[5]} %>
-    <div class="elements">
-      <ul>
-        <%a.start_up_jobs.each do |job| %>
-        <li><%=job.company_name %>
-            <%=job.address %></li>
-        <%end %>
-      </ul>
-    </div>
-</div>
-
   <div class = "card">
-    <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[6]} %>
+    <%= render partial: "buystatus", locals: { items: @game.status_volunteer_opportunities, :feature=> GameZip::FEATURES[5]} %>
     <div class = "elements">
       <ul>   
       <%a.volunteer_opportunities.each do |opportunity| %>
-        <li><%= opportunity.title %>
+        <li><%= opportunity.title %><br/>
           <%= opportunity.org_title %></li>
       <% end %>
       </ul>
@@ -105,11 +94,12 @@
   </div>
 
   <div class = "card">
-     <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[7]} %>
+     <%= render partial: "buystatus", locals: { items: @game.status_youth_programs, :feature=> GameZip::FEATURES[6]} %>
     <div class = "elements" >
       <ul>
         <%a.youth_programs.each do |program| %>
-          <li><%=program.agency %></li>
+          <li><%=program.agency %><br/>
+              <%=program.grade_level_age_group %></li>
         <% end %>
       </ul>
     </div>
