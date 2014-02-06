@@ -54,10 +54,10 @@ class Game < ActiveRecord::Base
   	else self.status_senior_centers = 0
   	end
 
-  	#  if self.game_zip.start_up_jobs.length == 0
-  	#  	self.status_start_up_jobs = -1
-  	#  else self.status_start_up_jobs = 0
-  	#  end
+  	 if self.game_zip.start_up_jobs.length == 0
+  	 	self.status_start_up_jobs = -1
+  	 else self.status_start_up_jobs = 0
+  	 end
 
   	 if self.game_zip.volunteer_opportunities.length == 0
   	 	self.status_volunteer_opportunities = -1
