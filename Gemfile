@@ -13,6 +13,7 @@ group :development, :test  do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
   gem 'factory_girl_rails'
+  gem 'debugger'
 end
 
 group :test do
