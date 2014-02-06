@@ -12,7 +12,7 @@
 
   <% @game.find_status %>
   <div class="card">
-    <%= render partial: "buystatus", locals: { items: @game.status_community_health_centers} %>
+    <%= render partial: "buystatus", :locals=> { :items => @game.status_community_health_centers, :features => "Community Health Centers"}%>
     <div class = "elements">
       <ul>
         <% a.community_health_centers.each do |center| %>
