@@ -36,7 +36,7 @@
       <% end %>
       </ul>
     </div>
-    <div class = "<%= @game.status_cultural_organizations == 0 ? "buy" :"not_purchasable" %> "> 
+    <div class = "<%= @game.status_cultural_organizations == 0 ? "buy" : "not_purchasable" %> "> 
       <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 500, :feature => "status_cultural_organizations")%>
 
     </div>
@@ -51,7 +51,7 @@
         <% end %>
       </ul>
     </div>
-     <div class = "<%= @game.status_licensed_businesses == 0 ? "buy" :"not_purchasable" %> "> 
+     <div class = "<%= @game.status_licensed_businesses == 0 ? "buy" : "not_purchasable" %> "> 
         <button type = "buy"> Buy me for $1000</button>
     </div>
   </div>
