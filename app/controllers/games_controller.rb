@@ -13,7 +13,7 @@ class GamesController < ApplicationController
       end
     end
     unless @repeat_flag
-      @game = Game.new(:user_id => params[:user_id], :game_zip_id => GameZip.where(:zip => params[:game_zip]).first.id, :money => 0, :points => 0)
+      @game = Game.new(:user_id => params[:user_id], :game_zip_id => GameZip.where(:zip => params[:game_zip]).first.id, :money => 40000, :points => 0)
       @game.save
       @game.game_zip.populate_tables
       @game.game_zip.find_features
@@ -52,9 +52,9 @@ class GamesController < ApplicationController
       @game.money -= params[:cost].to_i
       @game.update_attribute(params[:feature].to_sym, 1)
       @game.save
-      render 'win' if @game.win?
+      render 'broken' if @game.win?
     end
-    render 'broken'
+    redirect_to(action: 'show', id: @game.id, status: 302)
   end
 
   def destroy
