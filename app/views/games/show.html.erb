@@ -31,14 +31,12 @@
     <div class = "elements">
       <ul>
       <% a.cultural_organizations.each do |center| %>
-        <li><%= center.organization_name %>
-            <%= center.discipline_code %> </li>
+      <%= render partial: "cultural_organizations", locals: { center: center} %>
       <% end %>
       </ul>
     </div>
     <div class = "<%= @game.status_cultural_organizations == 0 ? "buy" :"not_purchasable" %> "> 
       <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 500, :feature => "status_cultural_organizations")%>
-
     </div>
   </div>
 
@@ -46,9 +44,9 @@
      <%= render partial: "buystatus", locals: { items: @game.status_licensed_businesses, :feature=> GameZip::FEATURES[2]} %>
     <div class = "elements">
       <ul>
-        <%a.licensed_businesses.each do |business| %>
-        <li><%= business.business_name.titleize%><br/>
-            </li>
+        <%a.licensed_businesses.each do |center| %>
+        <%= render partial: "licensed_businesses", locals: {center: center} %>
+       
         <% end %>
       </ul>
     </div>
