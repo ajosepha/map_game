@@ -1,4 +1,5 @@
 require 'open-uri'
+
 class VolunteerOpportunity < ActiveRecord::Base
   attr_accessible :title, :org_title, :address, :zip, :latitude, :longitude
   belongs_to :game_zip

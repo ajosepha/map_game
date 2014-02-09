@@ -5,6 +5,7 @@ gem 'json'
 gem 'haml'
 gem 'bcrypt-ruby'
 gem 'titleize'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,7 +14,7 @@ group :development, :test  do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
   gem 'factory_girl_rails'
-  gem 'debugger'
+  # gem 'debugger'
 end
 
 group :test do
@@ -35,8 +36,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
 # To use ActiveModel has_secure_password
 
 
@@ -48,6 +47,6 @@ gem 'jquery-rails'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-gem 'debugger'
+# gem 'debugger'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
