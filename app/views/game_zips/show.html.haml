@@ -43,17 +43,18 @@
           %br
           = complaint.incident_address
           %br
-%p
-  %b NYC StartUp Jobs:
-  %ul
-  -if @game_zip.start_up_jobs.length == 0
-    Looks like there are no NYC start up companies for you here.
-  -else
-    -@game_zip.start_up_jobs.each do |job|
-      %li
-        = job.company_name.titleize
-        = job.address.titleize
-        = job.hiring.titleize
+/  
+  %p
+    %b NYC StartUp Jobs:
+    %ul
+    -if @game_zip.start_up_jobs.length == 0
+      Looks like there are no NYC start up companies for you here.
+    -else
+      -@game_zip.start_up_jobs.each do |job|
+        %li
+          = job.company_name.titleize
+          = job.address.titleize
+          = job.hiring.titleize
 
 
 

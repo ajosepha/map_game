@@ -1,8 +1,7 @@
 %h1 Listings of NYC Zip Codes, search for your feature!
 
--# form_tag game_zips_path, :method => 'get' do
 %p
   = render 'game_zips/form' 
 
 
-= link_to 'Here is your zip code', "/game_zips/params[:zip]" 
+= link_to 'Here is your zip code', 'game_zip_path'
