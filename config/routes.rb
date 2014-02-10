@@ -6,4 +6,5 @@ resources :users do
   end
 end
 
+resources :game_zips 
 end

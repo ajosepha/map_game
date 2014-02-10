@@ -121,12 +121,6 @@
   </div>
 
 
-      </div>
-    </div>
-
-    </div>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-md-12">
@@ -138,17 +132,19 @@
             <%= render partial: "youth_programs", locals: { program: program} %>
           <% end %>
         </ul>
+      </div>
       <div class = "<%= @game.status_youth_programs == 0 ? "buy" : "not_purchasable" %> "> 
         <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_youth_programs")%>
       </div>
-    </div>
-</div>
-</div>
- 
 
-<button>
-  <%= link_to "Make some money!", edit_user_game_path(@user.id, @game.id) %>
-</button>
+    </div>
+  </div>
+</div>
+
+<div class = "link">
+<%= link_to "Make some money!", edit_user_game_path(@user.id, @game.id) %>
+</div>
+
 
 
 
