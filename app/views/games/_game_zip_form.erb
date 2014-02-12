@@ -1,0 +1,9 @@
+  <label for="game_zip"><%=borough %></label>
+  <select id="game_zip" type = "select" name="game_zip">
+  <% zips.each do |zip| %>
+    <%zip = zip.to_s %>
+    <% if zip.include?number %>
+      <option value="<%=zip%>"><%= zip %></option>
+    <%end %>
+  <%end%>
+  </select>

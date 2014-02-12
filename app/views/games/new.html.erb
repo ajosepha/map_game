@@ -1,12 +1,10 @@
 <h1><%= "Hello #{@user.user_name}, pick a zip!"%></h1>
 <form action="/users/<%=@user.id%>/games" method="POST">
-  <label for="game_zip">Zip codes:</label>
-  <select id="game_zip" type = "select" name="game_zip">
-  <% GameZip::NYCZIPS.each do |zip| %>
-   <option value="<%=zip%>"><%=zip%></option>
-  <%end%>
-  </select>
-
+  <%=render partial: "game_zip_form", locals: { :borough => "Bronx", :zips => GameZip::NYCZIPS, :number => "104" } %>
+  <%=render partial: "game_zip_form", locals: { :borough => "Brooklyn", :zips => GameZip::NYCZIPS, :number => "112" } %>
+  <%=render partial: "game_zip_form", locals: { :borough => "Manhattan", :zips => GameZip::NYCZIPS, :number => "100" } %>
+   <%=render partial: "game_zip_form", locals: { :borough => "Queens", :zips => GameZip::NYCZIPS, :number => "113" } %>
+    <%=render partial: "game_zip_form", locals: { :borough => "Queens", :zips => GameZip::NYCZIPS, :number => "103" } %>
   <br/>
   <button type="submit" value="results">New Game!</button>
 
