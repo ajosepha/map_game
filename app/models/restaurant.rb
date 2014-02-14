@@ -110,16 +110,16 @@ class Restaurant < ActiveRecord::Base
     desired_data = [1, 3, 4, 5, 7, 8, 10, 12]
     column_names = [:name, :street_address, :zip, :cuisine, :inspection_date, :violation, :current_grade]
 
-    rows= File.open("#{Rails.public_path}/data/smaller_Inspections.txt").readlines
+    rows= File.open("#{Rails.public_path}/data/Inspections.txt").readlines
     rows.shift
     rows.each do |line|
       temp_array = []
       temp_hash = {}
       nil_flag = false
-      element_array = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').split(",")
+      element_array = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').split("\",\"")
       element_array.each_with_index do |data_element, index|
-        nil_flag = true if data_element == nil && index != 10
-        if desired_data.include?(index)
+        nil_flag = true if data_element.class == NilClass && index != 10
+        if desired_data.include?(index) && nil_flag == false
           data_element = data_element.gsub("\"", "").gsub("   ", " ").gsub("  ", " ").strip
           case index
             when 4
@@ -128,7 +128,8 @@ class Restaurant < ActiveRecord::Base
               data_element = @@cuisine[data_element]
               temp_array << data_element
             when 8
-              nil_flag = true if Time.parse(data_element) < 6.month.ago
+              puts data_element
+              nil_flag = true unless Time.parse(data_element) > 6.month.ago
               temp_array << data_element
             when 10
               if @@violations.include?(data_element)
@@ -141,6 +142,7 @@ class Restaurant < ActiveRecord::Base
               temp_array << data_element
             when 12
               nil_flag = true if data_element == ""
+              data_element = "Pending" if data_element == "P"
               temp_array << data_element
             else
               temp_array << data_element
