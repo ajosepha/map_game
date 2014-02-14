@@ -41,6 +41,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @user = User.find(params[:user_id])
     @game.money += params[:game][:money].to_i if params[:value] == "true"
+    @game.save
 
     render 'show'
   end
