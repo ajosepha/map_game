@@ -9,6 +9,8 @@ html {
 body {
   padding-top: 60px;
   padding-bottom: 90px;
+  background-color: #EFEAD6;
+  background-image: url("assets/lower.jpg");
 }
 
 section {
@@ -33,10 +35,13 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  padding-top: 60px;
-}
 
+button {
+  font-weight: 800;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #B7ED63;
+}
 section {
   overflow: auto;
 }
