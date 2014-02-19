@@ -5,6 +5,6 @@ resources :users do
     post '/purchase', to: "games#purchase"
   end
 end
-
+#root : 
 resources :game_zips 
 end
