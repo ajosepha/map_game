@@ -24,4 +24,7 @@ class GameZipsController < ApplicationController
     @game_zip = GameZip.new
   end
 
+  def new
+  end
+
 end
