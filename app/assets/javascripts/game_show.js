@@ -5,9 +5,8 @@ $(document).ready(function(){
   $(".elements").hide();
 
   $(".card").on("click", function(event){
-    $(this).find(".status").css("color", "red")
     $(this).find(".elements").show();
   })
 
-
+  $(".status:contains('Congrats!')").css("background-color", "#57FF97")
 });
