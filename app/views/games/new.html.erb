@@ -1,22 +1,32 @@
 <h1><%= "Hello #{@user.user_name}, pick a zip!"%></h1>
 <form action="/users/<%=@user.id%>/games" method="POST">
   
-    <h3> Bronx </h3> <br/>
-    <div class = "Borough">
+  <div class="hood"> <h3> Bronx </h3> 
+    <div class = "borough">
       <%=render partial: "game_zip_form", locals: { :borough => "Bronx", :zips => GameZip::NYCZIPS, :number => "104" } %>
     </div>
-  <h3> Brooklyn </h3>
-    <div class = "Borough">
+  </div>
+
+  <div class="hood">
+    <h3> Brooklyn </h3>
+    <div class = "borough">
       <%=render partial: "game_zip_form", locals: { :borough => "Brooklyn", :zips => GameZip::NYCZIPS, :number => "112" } %>
     </div>
-  <h3> Manhattan </h3>
-    <div class = "Borough">
+  </div>
+
+  <div class="hood">
+    <h3> Manhattan </h3>
+    <div class = "borough">
       <%=render partial: "game_zip_form", locals: { :borough => "Manhattan", :zips => GameZip::NYCZIPS, :number => "100" } %>
     </div>
-  <h3> Queens </h3>
-    <div class = "Borough">
+  </div>
+
+  <div class="hood">
+    <h3> Queens </h3>
+    <div class = "borough">
       <%=render partial: "game_zip_form", locals: { :borough => "Queens", :zips => GameZip::NYCZIPS, :number => "113" } %>
     </div>
+  </div>
    
     <!--<%=render partial: "game_zip_form", locals: { :borough => "Queens", :zips => GameZip::NYCZIPS, :number => "103" } %>
   <br/>-->
