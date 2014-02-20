@@ -1,4 +1,5 @@
-<form action="/game_zips/@game_zip" method="POST">
+<h1> Listings of NYC Zip Codes, search for your feature!</h1>
+
   <label for="game_zip">Zip codes:</label>
   <select id="game_zip" type = "select" name="game_zip">
     <% GameZip::NYCZIPS.each do |zip| %>
@@ -7,5 +8,7 @@
   </select>
   <br/>
   <button type="submit" value="results">New Game!</button>
-  <button type="submit" value="results">See results!</button>
-    
+  </form>
+
+
+  
