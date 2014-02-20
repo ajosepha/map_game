@@ -1,0 +1,10 @@
+<form action="/game_zips/@game_zip" method="POST">
+  <label for="game_zip">Zip codes:</label>
+  <select id="game_zip" type = "select" name="game_zip">
+    <% GameZip::NYCZIPS.each do |zip| %>
+     <option value="<%=zip%>"><%=zip%></option>
+    <%end%>
+  </select>
+  <br/>
+  <button type="submit" value="results">New Game!</button>
+    
