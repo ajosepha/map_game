@@ -7,10 +7,10 @@ class GameZipsController < ApplicationController
   end
 
   def show
-    if GameZip.where(:zip => params[:zip]).length == 0
-      @game_zip = GameZip.create(:zip => params[:zip])
+    if GameZip.where(:zip => params[:id]).length == 0
+      @game_zip = GameZip.create(:zip => params[:id])
       else
-      @game_zip = GameZip.where(:zip => params[:zip]).first
+      @game_zip = GameZip.where(:zip => params[:id]).first
     end
 
 
