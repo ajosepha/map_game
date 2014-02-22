@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129164013) do
+ActiveRecord::Schema.define(:version => 20140222233150) do
 
   create_table "community_health_centers", :force => true do |t|
     t.string   "name_of_center"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20140129164013) do
     t.float    "size"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "zip"
+    t.integer  "game_zip_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -163,7 +165,6 @@ ActiveRecord::Schema.define(:version => 20140129164013) do
     t.string   "password"
     t.string   "user_name"
     t.string   "email"
-    t.string   "twitter"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

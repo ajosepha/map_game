@@ -171,13 +171,24 @@ li{
   font-size: 18px;
 }
 
+
+
 //misc
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
 
+input {
+  height: auto !important;
+}
 .debug_dump {
   clear: both;
   float: left;

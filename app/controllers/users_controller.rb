@@ -13,11 +13,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:login_success] = "Welcome! Login Successful."
-      redirect_to @user #Should send to create a new game. Send to games controller
+      redirect_to @user
     else
-      flash[:login_failure] = "Invalid login. Please try again."
-      render 'diagnostics'
+      render 'new'
     end
   end
 
@@ -27,5 +25,11 @@ class UsersController < ApplicationController
 
   def index
   end
+
+  private
+   def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+    end
   
 end
