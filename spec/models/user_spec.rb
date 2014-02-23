@@ -57,7 +57,7 @@ describe User do
 
   describe "when email format is valid" do
     it "should be valid" do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+      addresses = %w[user@foo.COM frst.lst@foo.jp a+b@baz.cn]
       addresses.each do |valid_address|
         @user.email = valid_address
         @user.should be_valid
@@ -84,16 +84,16 @@ describe User do
     before { @user.save }
     let(:found_user) { User.find_by_email(@user.email) }
 
-  #   describe "with valid password" do
-  #     it { should == found_user.authenticate(@user.password) }
-  #   end
+    describe "with valid password" do
+      it { should == found_user.authenticate(@user.password) }
+    end
 
-  #   describe "with invalid password" do
-  #     let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
-  #     it { should_not == user_for_invalid_password }
-  #     specify { user_for_invalid_password.should be_false }
-  #   end
+      it { should_not == user_for_invalid_password }
+      specify { user_for_invalid_password.should be_false }
+    end
   end
 end
 
