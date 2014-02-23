@@ -10,12 +10,12 @@
   - if @game_zip.cultural_organizations.length == 0
     %li This zipcode has no registered Cultural Organizations
   - else 
-    - @game_zip.cultural_organizations.each do|org|
+    - @game_zip.cultural_organizations.each do |org|
       %li
         = "#{org.organization_name}, a #{org.discipline_code} organization."
 
 %p
-  %b Community Health Centers:
+  Community Health Centers:
   %ul
   - if @game_zip.community_health_centers.length == 0
     %li Sorry, this zipcode has no registered Community Health Centers
@@ -25,48 +25,42 @@
         = center.name_of_center
 
 
-  %p
-    %b Complaints:
-    %ul
-    - if @game_zip.complaints.length == 0
+%p
+  Complaints:
+  %ul
+  - if @game_zip.complaints.length == 0
+    %li
+      Yay, everyone is happy!
+  - else
+    -@game_zip.complaints.each do |complaint|
       %li
-        Yay, everyone is happy!
-    - else
-      -@game_zip.complaints.each do |complaint|
-        %li
-          = complaint.complaint_type
-          %br
-          = complaint.descriptor
-          %br
-          = complaint.incident_address
-          %br
+        = complaint.descriptor
+        = "at #{complaint.incident_address}." unless complaint.incident_address.nil?
+        %br
   
-  %p
-    %b NYC StartUp Jobs:
-    %ul
-    -if @game_zip.start_up_jobs.length == 0
-      Looks like there are no NYC start up companies for you here.
-    -else
-      -@game_zip.start_up_jobs.each do |job|
-        %li
-          = job.company_name
-          = job.address
-          = job.hiring
+%p
+  NYC StartUp Jobs:
+  %ul
+  -if @game_zip.start_up_jobs.length == 0
+    Looks like there are no NYC start up companies hiring here.
+  -else
+    -@game_zip.start_up_jobs.each do |job|
+      %li
+        = job.company_name
+        = job.address
+        = job.hiring
 
 
 
 %p 
-  %b Restaurants:
+  Restaurants:
   %ul
   -if @game_zip.restaurants.length == 0
     Sucks for you, you're in a food desert!
   -else
     -@game_zip.restaurants.each do |place|
       %li
-        = place.name.titleize + ","
-        = place.street_address.titleize + ","
-        = place.current_grade + ","
-        = place.violation
+        = "#{place.name.titleize} at #{place.street_address.titleize} has a #{place.current_grade} due to #{place.violation}."
 
 %p 
   %b Youth Programs:
