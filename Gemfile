@@ -3,10 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.16'
 gem 'json'
 gem 'haml'
-gem 'bcrypt-ruby'
 gem 'titleize'
 gem 'jquery-rails'
 gem 'devise'
+gem "bcrypt-ruby"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
