@@ -29,6 +29,8 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.5)
+    annotate (2.5.0)
+      rake
     arel (3.0.3)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -189,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate (= 2.5.0)
   bcrypt-ruby
   capybara
   coffee-rails (~> 3.2.1)

@@ -18,6 +18,10 @@ group :development, :test  do
   gem 'debugger'
 end
 
+group :development do
+  gem 'annotate', '2.5.0'
+end
+
 group :test do
   gem 'faker'
   gem 'capybara'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140222233150) do
+ActiveRecord::Schema.define(:version => 20140223201451) do
 
   create_table "community_health_centers", :force => true do |t|
     t.string   "name_of_center"
@@ -162,7 +162,6 @@ ActiveRecord::Schema.define(:version => 20140222233150) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "password"
     t.string   "user_name"
     t.string   "email"
     t.datetime "created_at", :null => false
