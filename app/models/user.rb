@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   attr_accessor :password, :password_confirmation
+  has_secure_password
 
   has_many :games
   has_many :game_zips, :through => :games

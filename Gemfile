@@ -6,7 +6,7 @@ gem 'haml'
 gem 'titleize'
 gem 'jquery-rails'
 gem 'devise'
-gem "bcrypt-ruby"
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
