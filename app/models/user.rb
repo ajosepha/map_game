@@ -1,25 +1,16 @@
 class User < ActiveRecord::Base
   has_many :games
   has_many :game_zips, :through => :games
-  #has_many :friends, class_name: "User", foreign_key: "user_id"
-  
-  attr_accessor :name, :email
 
-  def initialize(attributes = {})
-    @name  = attributes[:name]
-    @email = attributes[:email]
-  end
+  attr_accessible :email, :name
 
-  def formatted_email
-    "#{@name} <#{@email}>"
-  end
+  before_save { |user| user.email = email.downcase }
+
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: {case_sensitive: false} 
+
+
+
+
 end
-
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # validates :email, presence: true, format: {with:VALID_EMAIL_REGEX},
-  # uniqueness: { case_sensitive: false}
-  # validates :user_name, presence: true, length: {maximum: 50}, uniqueness: { case_sensitive: false}
-  # validates :password, presence: true
-
-
-  #has_secure_password validations:false
