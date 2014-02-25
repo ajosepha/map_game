@@ -1,122 +1,113 @@
 %p#notice
   = notice
 
-%p
-  %b Zip:
-  = @game_zip.zip
+%p.headlining_zipcode
+  ="Zip: #{@game_zip.zip}"
 
 %p
-  %b Cultural Organizations:
-  %ul
+  Cultural Organizations:
+  %ul 
   - if @game_zip.cultural_organizations.length == 0
-    None
+    %li This zipcode has no registered Cultural Organizations
   - else 
-    - @game_zip.cultural_organizations.each do|org|
+    - @game_zip.cultural_organizations.each do |org|
       %li
-        = org.organization_name + ","
-        = org.discipline_code + ","
-        =# org.human_address.delete "city"
+        = "#{org.organization_name}, a #{org.discipline_code} organization."
 
-/ %p
-/   %b Community Health Centers:
-/   %ul
-/   - if @game_zip.community_health_centers.length == 0
-/     Sorry
-/   - else
-/     -@game_zip.community_health_centers.each do |center|
-/       %li
-/         = center.name_of_center
+%p
+  Community Health Centers:
+  %ul
+  - if @game_zip.community_health_centers.length == 0
+    %li Sorry, this zipcode has no registered Community Health Centers
+  - else
+    -@game_zip.community_health_centers.each do |center|
+      %li
+        = center.name_of_center
 
 
-/   %p
-/     %b Complaints:
-/     %ul
-/     - if @game_zip.complaints.length == 0
-/       %li
-/         Yay, everyone is happy!
-/     - else
-/       -@game_zip.complaints.each do |complaint|
-/         %li
-/           = complaint.complaint_type
-/           %br
-/           = complaint.descriptor
-/           %br
-/           = complaint.incident_address
-/           %br
+%p
+  Complaints:
+  %ul
+  - if @game_zip.complaints.length == 0
+    %li
+      Yay, everyone is happy!
+  - else
+    -@game_zip.complaints.each do |complaint|
+      %li
+        = complaint.descriptor
+        = "at #{complaint.incident_address}." unless complaint.incident_address.nil?
+        %br
   
-/   %p
-/     %b NYC StartUp Jobs:
-/     %ul
-/     -if @game_zip.start_up_jobs.length == 0
-/       Looks like there are no NYC start up companies for you here.
-/     -else
-/       -@game_zip.start_up_jobs.each do |job|
-/         %li
-/           = job.company_name
-/           = job.address
-/           = job.hiring
+%p
+  NYC StartUp Jobs:
+  %ul
+  -if @game_zip.start_up_jobs.length == 0
+    Looks like there are no NYC start up companies hiring here.
+  -else
+    -@game_zip.start_up_jobs.each do |job|
+      %li
+        = job.company_name
+        = job.address
+        = job.hiring
 
 
 
-/ %p 
-/   %b Restaurants:
-/   %ul
-/   -if @game_zip.restaurants.length == 0
-/     Sucks for you, you're in a food desert!
-/   -else
-/     -@game_zip.restaurants.each do |place|
-/       %li
-/         = place.name.titleize + ","
-/         = place.street_address.titleize + ","
-/         = place.current_grade + ","
-/         = place.violation
+%p 
+  Restaurants:
+  %ul
+  -if @game_zip.restaurants.length == 0
+    Sucks for you, you're in a food desert!
+  -else
+    -@game_zip.restaurants.each do |place|
+      %li
+        = "#{place.name.titleize} at #{place.street_address.titleize} has a #{place.current_grade} due to #{place.violation}."
 
-/ %p 
-/   %b Youth Programs:
-/   %ul
-/   -if @game_zip.youth_programs == 0
-/     Hope you don't have kids, there aren't any youth programs in your zip code!
-/   -else
-/     -@game_zip.youth_programs.each do |item|
-/       %li
-/         = item.program + ","
-/         = item.address + ","
-/         = item.agency
+%p 
+  %b Youth Programs:
+  %ul
+  -if @game_zip.youth_programs == 0
+    Hope you don't have kids, there aren't any youth programs in your zip code!
+  -else
+    -@game_zip.youth_programs.each do |item|
+      %li
+        = item.program + ","
+        = item.address + ","
+        = item.agency
 
-/ %p 
-/   %b Licensed Businesses:
-/   %ul
-/   -if @game_zip.licensed_businesses.length == 0
-/     How is this possible? A purely residential zip code?
-/   -else
-/     -@game_zip.licensed_businesses.each do |place|
-/       %li
-/         =place.business_name.titleize + ","
-/         =place.industry.titleize
+%p 
+  %b Licensed Businesses:
+  %ul
+  -if @game_zip.licensed_businesses.length == 0
+    How is this possible? A purely residential zip code?
+  -else
+    -@game_zip.licensed_businesses.each do |place|
+      %li
+        =place.business_name.titleize + ","
+        =place.industry.titleize
 
 
-/ %p 
-/   %b Volunteer Opportunties:
-/   %ul
-/   -if @game_zip.volunteer_opportunities.length == 0
-/     Nope
-/   -else
-/     -@game_zip.volunteer_opportunities.each do |thing|
-/       %li
-/         =thing.title + ","
-/         =thing.org_title + ","
-/         =thing.address
+%p 
+  %b Volunteer Opportunties:
+  %ul
+  -if @game_zip.volunteer_opportunities.length == 0
+    Nope
+  -else
+    -@game_zip.volunteer_opportunities.each do |thing|
+      %li
+        =thing.title + ","
+        =thing.org_title + ","
+        =thing.address
 
-/ %p
-/   %b Senior Centers:
-/   %ul
-/   -if @game_zip.senior_centers.length == 0
-/     None
-/   -else
-/     -@game_zip.senior_centers.each do |thing|
-/       %li
-/         =thing.program_name.titleize + ","
-/         =thing.sponsor_name.titleize
+%p
+  %b Senior Centers:
+  %ul
+  -if @game_zip.senior_centers.length == 0
+    None
+  -else
+    -@game_zip.senior_centers.each do |thing|
+      %li
+        =thing.program_name.titleize + ","
+        =thing.sponsor_name.titleize
 
 
 
