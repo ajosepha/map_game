@@ -1,7 +1,9 @@
-%h1 Listings of NYC Zip Codes, search for your feature!
+%h1 Listings of NYC Zip Codes
 
-%p
-  = render 'game_zips/form' 
+.all-zips
+  - @game_zips.each do |zip|
+    = link_to "#{zip.zip}", game_zip_path(zip.zip)
+    %br
 
 
   

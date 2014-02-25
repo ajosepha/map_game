@@ -1,6 +1,5 @@
-= form_for(@game_zip) do |f|
+= form_for @game_zips.each do |f|
   .field
     = f.label :zip
     = f.text_field :zip
-    =link_to "submit", game_zip_path
     
