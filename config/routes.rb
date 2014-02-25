@@ -2,11 +2,10 @@ MapGame::Application.routes.draw do
 
 root :to => "users#index"
 resources :users do
-  match '/signup',  to: 'users#new',            via: 'get'
-  resources :sessions, only: [:new, :create, :destroy]
-    match '/signup',  to: 'users#new',            via: 'get'
-    match '/signin',  to: 'sessions#new',         via: 'get'
-    match '/signout', to: 'sessions#destroy',     via: 'delete'
+resources :sessions, only: [:new, :create, :destroy] 
+    match '/signup',  to: 'users#new'          
+    match '/signin',  to: 'sessions#new'     
+   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   resources :games do
     post '/purchase', to: "games#purchase"

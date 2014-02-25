@@ -52,7 +52,7 @@ FEATURES = ["community_health_centers", "cultural_organizations", "licensed_busi
     self.find_restaurants if self.restaurants.length == 0
     self.find_senior_centers if self.senior_centers.length == 0
     self.find_start_up_jobs if self.start_up_jobs.length == 0
-    self.find_volunteer_opportunities if self.volunteer_opportunities.length == 0
+    #self.find_volunteer_opportunities if self.volunteer_opportunities.length == 0
     self.find_youth_programs if self.youth_programs.length == 0
 
   end
