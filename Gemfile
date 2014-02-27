@@ -5,7 +5,6 @@ gem 'json'
 gem 'haml'
 gem 'titleize'
 gem 'jquery-rails'
-gem 'devise'
 gem 'bcrypt-ruby', '~> 3.0.1'
 
 # Bundle edge Rails instead:

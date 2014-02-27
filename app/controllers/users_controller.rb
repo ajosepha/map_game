@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   #   @zip = user.game.zip
   # end
 
+  def new
+    @user = User.new
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -22,9 +26,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-  end
+  
 
   # def index
   # end
