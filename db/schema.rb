@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(:version => 20140227231052) do
     t.float    "size"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "zip"
-    t.integer  "game_zip_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -167,9 +165,11 @@ ActiveRecord::Schema.define(:version => 20140227231052) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "volunteer_opportunities", :force => true do |t|
     t.string   "title"
