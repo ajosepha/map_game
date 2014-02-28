@@ -15,7 +15,7 @@ group :development, :test  do
   gem 'rspec-rails', '2.11.0'
   gem 'factory_girl_rails'
   gem 'debugger'
-  gem 'webrat', '0.7.1'
+
 end
 
 group :development do
