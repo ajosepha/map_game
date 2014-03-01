@@ -95,7 +95,9 @@ FEATURES = ["community_health_centers", "cultural_organizations", "licensed_busi
   def find_restaurants
     local_restaurants = Restaurant.where(:zip => zip).to_a
     local_restaurants.each do |restaurant|
-      self.restaurants << restaurant unless self.restaurants.include?(restaurant.name)
+      existing_flag = nil
+      self.restaurants.each {|existing| existing_flag = true if existing.name == restaurant.name}
+      self.restaurants << restaurant unless existing_flag
     end
   end
 
