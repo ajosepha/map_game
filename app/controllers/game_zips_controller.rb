@@ -17,6 +17,7 @@ class GameZipsController < ApplicationController
   def index
     GameZip.make_game_zips if GameZip.all.length == 0
     @game_zips = GameZip.all
+    render 'index'
   end
 
   def new

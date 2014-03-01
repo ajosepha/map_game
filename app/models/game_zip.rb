@@ -29,7 +29,7 @@ FEATURES = ["community_health_centers", "cultural_organizations", "licensed_busi
 
   def populate_tables
     CommunityHealthCenter.make_community_health_centers if CommunityHealthCenter.first.class == NilClass
-    ## TOO SLOW Complaint.make_complaints if Complaint.first.class == NilClass
+    # currently offline Complaint.make_complaints if Complaint.first.class == NilClass
     CulturalOrganization.make_cultural_organizations if CulturalOrganization.first.class == NilClass
     LicensedBusiness.make_licensed_businesses if LicensedBusiness.first.class == NilClass
     Restaurant.make_restaurants if Restaurant.first.class == NilClass
@@ -38,9 +38,6 @@ FEATURES = ["community_health_centers", "cultural_organizations", "licensed_busi
     VolunteerOpportunity.make_volunteer_opportunities if VolunteerOpportunity.first.class == NilClass
     YouthProgram.make_youth_programs if YouthProgram.first.class == NilClass
   end
-
-
-
 
   def find_features
     self.find_community_health_centers if self.community_health_centers.length == 0
@@ -55,7 +52,6 @@ FEATURES = ["community_health_centers", "cultural_organizations", "licensed_busi
     self.find_start_up_jobs if self.start_up_jobs.length == 0
     #self.find_volunteer_opportunities if self.volunteer_opportunities.length == 0
     self.find_youth_programs if self.youth_programs.length == 0
-
   end
 
   def find_cultural_organizations
