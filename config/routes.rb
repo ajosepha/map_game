@@ -7,7 +7,7 @@ resources :users do
   end
 end
 
-resources :game_zips
+resources :game_zips, only: [:show, :index]
 
 resources :sessions, only: [:new, :create, :destroy]
 
