@@ -1,5 +1,1 @@
-<%= @user.name %>, <%= @user.email %> <%=@user.id %>
-
-<%=link_to("Play a game",{:controller=>'games', :action=>'new', :id => @user.id}, {:method => :get, :remote => true})  %>
-
-<!-- new_user_game_path(@user.id) -->
+Hi <%= @user.name %>, <%= @user.email %> <%=@user.id %> !
