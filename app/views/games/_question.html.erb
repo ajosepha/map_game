@@ -1,9 +1,13 @@
-<%= form_tag do %>
+<div class="trivia"> Trivia!</div>
+<div class="question">
+  <%= form_tag do %>
   <%=label_tag question %>
-  <%= radio_button_tag(:value, "true") %>
+ <%= radio_button_tag(:value, "true") %>
   <%= label_tag(:value_true, "yes") %>
    <%= radio_button_tag(:value, "false") %>
    <%=label_tag(:value_false, "no") %>
- 
-<%end%>
+
+
+  <%end%>
+</div>
  
