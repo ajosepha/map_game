@@ -1,21 +1,21 @@
 %p#notice
   = notice
 
-%p.headlining_zipcode
+%h1
   ="Zip: #{@game_zip.zip}"
 
 %p
-  Cultural Organizations:
+  %h4 Cultural Organizations:
   %ul 
   - if @game_zip.cultural_organizations.length == 0
     %li This zipcode has no registered Cultural Organizations
   - else 
     - @game_zip.cultural_organizations.each do |org|
       %li
-        = "#{org.organization_name}, a #{org.discipline_code} organization."
-
+        = "#{org.organization_name} is a #{org.discipline_code} organization."
+%br
 %p
-  Community Health Centers:
+  %h4 Community Health Centers:
   %ul
   - if @game_zip.community_health_centers.length == 0
     %li Sorry, this zipcode has no registered Community Health Centers
@@ -24,90 +24,94 @@
       %li
         = center.name_of_center
 
-
+%br
 %p
-  Complaints:
+  %h4 Complaints:
   %ul
   - if @game_zip.complaints.length == 0
-    %li
-      Yay, everyone is happy!
+    %li No complaints here!
   - else
     -@game_zip.complaints.each do |complaint|
       %li
-        = complaint.descriptor
-        = "at #{complaint.incident_address}." unless complaint.incident_address.nil?
-        %br
-  
+        - location = " at #{complaint.incident_address}" unless complaint.incident_address.nil?
+        = "#{complaint.descriptor}#{location}."
+        
+%br 
 %p
-  NYC StartUp Jobs:
+  %h4 NYC StartUp Jobs:
   %ul
   -if @game_zip.start_up_jobs.length == 0
-    Looks like there are no NYC start up companies hiring here.
+    %li Looks like there are no NYC start up companies hiring here.
   -else
     -@game_zip.start_up_jobs.each do |job|
       %li
         = job.company_name
         = job.address
         = job.hiring
-
-
-
+%br
 %p 
-  Restaurants:
+  %h4 Good Restaurants:
   %ul
   -if @game_zip.restaurants.length == 0
     Sucks for you, you're in a food desert!
   -else
-    -@game_zip.restaurants.each do |place|
-      %li
-        = "#{place.name.titleize} at #{place.street_address.titleize} has a #{place.current_grade} due to #{place.violation}."
-
+    -@game_zip.restaurants.each do |restaurant|
+      - if restaurant.current_grade == ("A"||"B")
+        %li
+          - n = "n" if restaurant.current_grade == "A"
+          = "#{restaurant.name.titleize} at #{restaurant.street_address.titleize} is a#{n} #{restaurant.current_grade} restaurant."
+%br
 %p 
-  %b Youth Programs:
+  %h4 Less Good Restaurants:
+  %ul
+  -@game_zip.restaurants.each do |restaurant|
+    - if restaurant.violation != "boring"
+      %li
+        - n = "n" if restaurant.current_grade == "A"
+        = "#{restaurant.name.titleize} at #{restaurant.street_address.titleize} is having problems with #{restaurant.violation}"
+%br
+%p 
+  %h4 Youth Programs:
   %ul
   -if @game_zip.youth_programs == 0
     Hope you don't have kids, there aren't any youth programs in your zip code!
   -else
     -@game_zip.youth_programs.each do |item|
       %li
-        = item.program + ","
-        = item.address + ","
-        = item.agency
-
+        = "#{item.agency} offers #{item.program} for #{item.grade_level_age_group} kids at #{item.address}."
+%br
 %p 
-  %b Licensed Businesses:
+  %h4 Licensed Businesses:
   %ul
   -if @game_zip.licensed_businesses.length == 0
-    How is this possible? A purely residential zip code?
+    %li How is this possible? A purely residential zip code?
   -else
     -@game_zip.licensed_businesses.each do |place|
       %li
         =place.business_name.titleize + ","
         =place.industry.titleize
 
-
+%br
 %p 
-  %b Volunteer Opportunties:
+  %h4 Volunteer Opportunties:
   %ul
   -if @game_zip.volunteer_opportunities.length == 0
-    Nope
+    %li None here
   -else
-    -@game_zip.volunteer_opportunities.each do |thing|
+    -@game_zip.volunteer_opportunities.each do |opportunity|
       %li
-        =thing.title + ","
-        =thing.org_title + ","
-        =thing.address
+        ="#{opportunity.title} with #{opportunity.org_title} at #{opportunity.address}."
 
+%br
 %p
-  %b Senior Centers:
+  %h4 Senior Centers:
   %ul
   -if @game_zip.senior_centers.length == 0
-    None
+    %li None
   -else
-    -@game_zip.senior_centers.each do |thing|
+    -@game_zip.senior_centers.each do |center|
       %li
-        =thing.program_name.titleize + ","
-        =thing.sponsor_name.titleize
+        ="#{center.sponsor_name.titleize} runs the #{center.program_name.titleize}."
 
 
 
