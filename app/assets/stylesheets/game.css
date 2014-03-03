@@ -75,3 +75,19 @@
   font-family: Arial;
 }
 
+#show {
+  background-image: url('grand_central.jpg');
+}
+
+
+#show h3{
+  color: #FF0000;
+  font-size: 40px;
+  text-shadow: 1px 1px black;
+  text-align: center;
+}
+
+#triv {
+  background-image: url('pointz.jpg');
+  background-repeat: no-repeat;
+}
