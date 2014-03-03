@@ -54,9 +54,24 @@
   text-shadow: 1px 1px yellow;
 }
 
-.play {
-  margin: auto;
-  margin: 20px 0px;
+#hi {
   text-align: center;
+}
+
+.new_game {
+  background-image: url('brownstone.jpg');
+  padding: 120px ;
+  font-family: 'Seymour One', Arial;
+  color: #ff9900;
+  text-shadow: 1px 1px #5B2120;
+}
+
+.new_game .hood:hover{
+  cursor: pointer;
+}
+
+.new_game .borough {
+  color: black;
+  font-family: Arial;
 }
 

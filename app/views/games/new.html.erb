@@ -1,34 +1,40 @@
-<h1><%= "Hello #{@user.name}, pick a zip!"%></h1>
-<form action="/users/<%=@user.id%>/games" method="POST">
-  
-  <div class="hood"> <h3> Bronx </h3> 
-    <div class = "borough">
-      <%=render partial: "game_zip_form", locals: { :borough => "Bronx", :zips => GameZip::BRONXZIPS } %>
+<div class="new_game">
+  <h1><%= "Hello #{@user.name}, pick a zip!"%></h1>
+  <form action="/users/<%=@user.id%>/games" method="POST">
+    
+    <div class="hood"> <h3> Bronx </h3> 
+      <div class = "borough">
+        <%=render partial: "game_zip_form", locals: { :borough => "Bronx", :zips => GameZip::BRONXZIPS } %>
+      </div>
     </div>
-  </div>
 
-  <div class="hood">
-    <h3> Brooklyn </h3>
-    <div class = "borough">
-      <%=render partial: "game_zip_form", locals: { :borough => "Brooklyn", :zips => GameZip::BROOKLYNZIPS } %>
+    <div class="hood">
+      <h3> Brooklyn </h3>
+      <div class = "borough">
+        <%=render partial: "game_zip_form", locals: { :borough => "Brooklyn", :zips => GameZip::BROOKLYNZIPS } %>
+      </div>
     </div>
-  </div>
 
-  <div class="hood">
-    <h3> Manhattan </h3>
-    <div class = "borough">
-      <%=render partial: "game_zip_form", locals: { :borough => "Manhattan", :zips => GameZip::MANHATTANZIPS, :number => "100" } %>
+    <div class="hood">
+      <h3> Manhattan </h3>
+      <div class = "borough">
+        <%=render partial: "game_zip_form", locals: { :borough => "Manhattan", :zips => GameZip::MANHATTANZIPS, :number => "100" } %>
+      </div>
     </div>
-  </div>
 
-  <div class="hood">
-    <h3> Queens </h3>
-    <div class = "borough">
-      <%=render partial: "game_zip_form", locals: { :borough => "Queens", :zips => GameZip::QUEENSZIPS, :number => "113" } %>
+    <div class="hood">
+      <h3> Queens </h3>
+      <div class = "borough">
+        <%=render partial: "game_zip_form", locals: { :borough => "Queens", :zips => GameZip::QUEENSZIPS, :number => "113" } %>
+      </div>
     </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12" id="hi">
+    <button type="submit" value="results">New Game!</button>
+    </form>
   </div>
+</div>
 
-  <button type="submit" value="results">New Game!</button>
-
-  </form>
 
