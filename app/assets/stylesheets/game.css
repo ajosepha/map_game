@@ -39,7 +39,24 @@
 .gamezipindex a{
   color: #CC0000;
   font-weight: bold;
-  text-shadow: 1px 1px #5B2120;
-  
+  text-shadow: 1px 1px #5B2120; 
+}
+
+.game {
+  background-image: url('new_york_skyline.jpg');
+  height: 100%;
+  text-align: center;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  font-family: 'Seymour One', Arial;
+  color: #660099;
+  font-size: 2em;
+  text-shadow: 1px 1px yellow;
+}
+
+.play {
+  margin: auto;
+  margin: 20px 0px;
+  text-align: center;
 }
 
