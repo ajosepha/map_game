@@ -53,9 +53,12 @@ class GamesController < ApplicationController
       @game.money -= params[:cost].to_i
       @game.update_attribute(params[:feature].to_sym, 1)
       @game.save
-      render 'broken' if @game.win?
     end
-    redirect_to(action: 'show', id: @game.id, status: 302)
+    if @game.win?
+      render 'win'
+    else
+      redirect_to(action: 'show', id: @game.id, status: 302)
+    end
   end
 
   def destroy

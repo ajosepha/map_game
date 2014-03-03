@@ -1,0 +1,12 @@
+<div class="new_game">
+  <h1><%= "Congrats #{@user.name}, you won!"%></h1>
+
+
+  <div class="row">
+    <div class="col-md-12" id="hi">
+      <form action=<%="/users/#{params[:user_id]}/games/new"%> method="get" >
+      <button type="submit" value="results">Play a New Game?</button>
+      </form>
+    </div>
+  </div>
+</div>
