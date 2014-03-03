@@ -6,7 +6,6 @@ class GamesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @repeat_flag = false
-    debugger
     @user.games.each do |existing_game|
       if existing_game.game_zip_id == GameZip.where(:zip => params[:game_zip]).first.id
         @repeat_flag = true
@@ -14,7 +13,6 @@ class GamesController < ApplicationController
       end
     end
     unless @repeat_flag
-      debugger
       @game = Game.new(:user_id => params[:user_id], :game_zip_id => GameZip.find_or_create_by_zip(params[:game_zip]).id, :money => 1000, :points => 0)
       @game.save
       @game.game_zip.populate_tables
@@ -42,7 +40,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @user = User.find(params[:user_id])
-    @game.money += params[:game][:money].to_i if params[:value] == "true"
+    @game.money += 500 if params[:value] == "true"
     @game.save
 
     render 'show'

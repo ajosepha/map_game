@@ -1,14 +1,38 @@
-<h1> Listings of NYC Zip Codes, search for your feature!</h1>
 
-  <label for="game_zip">Zip codes:</label>
-  <select id="game_zip" type = "select" name="game_zip">
-    <% GameZip::NYCZIPS.each do |zip| %>
-     <option value="<%=zip%>"><%=zip%></option>
-    <%end%>
-  </select>
-  <br/>
-  <button type="submit" value="results">New Game!</button>
-  </form>
+  <h1> Listings of NYC Zip Codes </h1>
+<div class="gamezipindex">
+  <div class="Bronx-zips">
+    <h3>Bronx </h3>
+    <% GameZip::BRONXZIPS.each do |zip| %>
+      <%= link_to "#{zip}", game_zip_path(zip) %>
+    <% end %>
+  </div>
 
+  <div class="Brooklyn-zips">
+    <h3>Brooklyn </h3>
+    <% GameZip::BROOKLYNZIPS.each do |zip| %>
+      <%= link_to "#{zip}", game_zip_path(zip) %>
+    <% end %>
+  </div>
 
-  
+  <div class="Manhattan-zips">
+    <h3>Manhattan </h3>
+    <% GameZip::MANHATTANZIPS.each do |zip| %>
+      <%= link_to "#{zip}", game_zip_path(zip) %>
+    <% end %>
+  </div>
+
+  <div class="Queens-zips">
+    <h3>Queens </h3>
+    <% GameZip::QUEENSZIPS.each do |zip| %>
+      <%= link_to "#{zip}", game_zip_path(zip) %>
+    <% end %>
+  </div>
+
+  <div class="SI-zips">
+    <h3>Staten Island </h3>
+    <% GameZip::SIZIPS.each do |zip| %>
+      <%= link_to "#{zip}", game_zip_path(zip) %>
+    <% end %>
+  </div>
+</div>

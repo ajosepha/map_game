@@ -3,7 +3,7 @@ class GameZipsController < ApplicationController
   def show
     if GameZip.where(:zip => params[:id]).length == 0
       @game_zip = GameZip.create(:zip => params[:id])
-      else
+    else
       @game_zip = GameZip.where(:zip => params[:id]).first
     end
 
@@ -17,9 +17,7 @@ class GameZipsController < ApplicationController
   def index
     GameZip.make_game_zips if GameZip.all.length == 0
     @game_zips = GameZip.all
-  end
-
-  def new
+    render 'index'
   end
 
 end

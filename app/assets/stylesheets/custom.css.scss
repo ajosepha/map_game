@@ -171,6 +171,29 @@ li{
   font-size: 18px;
 }
 
+//formatting for questions
+.col4{
+  width: 20%;;
+  display: inline-block; 
+  padding: 20px 0;
+}
+
+.trivia{
+  background-color: #3B4155;
+  color: #F4E461; 
+  height: 40px;
+  text-align: center;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.trivia:hover{
+  background-color: #001e00
+}
+
+.col4:hover{
+  cursor: pointer;
+}
 
 
 //misc
@@ -211,20 +234,4 @@ input {
   @extend .control-group;
   @extend .error;
 }
-//cards in the show view in games
-// .container {
-//   position: relative;
-//   -webkit-perspective: 1000;
-//   -moz-perspective: 1000;
-//   -ms-perspective: 1000;
-//   -o-perspective: 1000
-// }
-// .card {
-//   width: 500px;
-//   height: 200px;
-//   position: relative;
-// }
 
-// .elements {
-//   position: absolute;
-// }

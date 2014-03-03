@@ -1,10 +1,8 @@
-
-<h2> You have <%=@game.money %> dollars </h2>
-
-
-<p></p>
+<div class="jumbotron" id="show">
+ <h3>You have <%=@game.money %> dollars</h3>
   <% your_zip = GameZip.find(@game.game_zip_id)%>
  <h1> You are playing as <%=your_zip.zip %></h1>
+</div>
  
 
  <h2> Your zipcode has the following features</h2>
@@ -138,8 +136,10 @@
   </div>
 </div>
 
-<div class = "link">
-<%= link_to "Make some money!", edit_user_game_path(@user.id, @game.id) %>
+<div class="row">
+  <div class="col-md-12" id="hi">
+    <button><%= link_to "Make some money!", edit_user_game_path(@user.id, @game.id) %></button>
+  </div>
 </div>
 
 

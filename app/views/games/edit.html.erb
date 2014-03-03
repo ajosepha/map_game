@@ -1,11 +1,88 @@
-<h1>Questions</h1>
-<p>Find me in app/views/games/edit.html.erb</p>
-<div class="jumbotron">
+
+<div class="jumbotron" id="triv">
   <div class="container">
-    <h1>You will find the questions in a carousel here </h1>
+   <h1>Questions</h1>
   </div>
 </div>
 
+
+  <div class="col4">
+    <%= render :partial => "question", locals: {:question => "Greenwich Village is home to Washington Square, the MacDougal-Sullivan Gardens Historic District and New York University?"} %>
+  </div>
+
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "The Metropolitan Museum of Art is the largest museum in the Western Hemisphere"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question_false", locals: {:question => "The Five boroughs of NYC are Long Island, the Bronx, Queens, Brooklyn and Manhattan."} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question_false", locals: {:question => "Hip-hop pioneers Run-DMC are from the Bronx"} %>
+</div>
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "The Barclays Stadium is located in Brooklyn"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question_false", locals: {:question => "The Yankees adopted pinstripes to make Babe Ruth look slimmer"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "New York City is the safest major city in America, and has the lowest crime rate"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "NYC houses the largest gold buillion deposit in the world"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "The first Teddy Bear in the world was  created in NYC"} %>
+</div>
+ 
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "Staten Island is the only NYC borough  that is not the home of a professional sports team"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "New York City was the nation's first Capital"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question_false", locals: {:question => "There is buried treasure from Captian William Kidd on Liberty Island"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "The Brooklyn Bridge is the first bridge to be lit using electricity"} %>
+</div>
+
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "Liberty Island is part of New Jersey"} %>
+</div>
+
+<div class="col4">
+<%= render :partial => "question", locals: {:question => "The New York subway system is the largest mass transit system in the world with 468 stations and 842 miles of track."} %>
+</div>
+
+<<<<<<< HEAD
 <div class = "questions">
   <%= render 'form' %>
+=======
+<div class="col4">
+<%= render :partial => "question_false", locals: {:question => "In 1973, kids bought baby alligators as pets and flushed them into the sewer system.  The descendants of these alligators live in the sewers today"} %>
+>>>>>>> signing
 </div>

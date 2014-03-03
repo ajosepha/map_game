@@ -1,0 +1,93 @@
+.jumbotron{
+  background-image: url('dumbo.jpg');
+  color: #FF9900;
+  text-shadow: 1px 1px red;
+}
+
+.jumbotron h1 {
+  font-family: 'Seymour One', Arial;
+}
+
+.sidebar{
+  display: inline-block;
+  background-color: red;
+}
+
+.play {
+  display: inline-block;
+  width: 48%;
+}
+
+.gamezipindex{
+  background-image: url('bridge.jpg');
+ /* webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+  padding: 40px;
+  opacity:0.7;
+  filter:alpha(opacity=70)
+}
+
+.gamezipindex h3{
+  font-family: 'Seymour One', Arial;
+  color: #ff9900;
+  text-shadow: 1px 1px #5B2120;
+
+}
+
+.gamezipindex a{
+  color: #CC0000;
+  font-weight: bold;
+  text-shadow: 1px 1px #5B2120; 
+}
+
+.game {
+  background-image: url('new_york_skyline.jpg');
+  height: 100%;
+  text-align: center;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  font-family: 'Seymour One', Arial;
+  color: #660099;
+  font-size: 2em;
+  text-shadow: 1px 1px yellow;
+}
+
+#hi {
+  text-align: center;
+}
+
+.new_game {
+  background-image: url('brownstone.jpg');
+  padding: 120px ;
+  font-family: 'Seymour One', Arial;
+  color: #ff9900;
+  text-shadow: 1px 1px #5B2120;
+}
+
+.new_game .hood:hover{
+  cursor: pointer;
+}
+
+.new_game .borough {
+  color: black;
+  font-family: Arial;
+}
+
+#show {
+  background-image: url('grand_central.jpg');
+}
+
+
+#show h3{
+  color: #FF0000;
+  font-size: 40px;
+  text-shadow: 1px 1px black;
+  text-align: center;
+}
+
+#triv {
+  background-image: url('pointz.jpg');
+  background-repeat: no-repeat;
+}

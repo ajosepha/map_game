@@ -1,3 +1,12 @@
-<%= @user.name %>, <%= @user.email %> <%=@user.id %>
+<div class="game">
+    Hi <%= @user.name %>, Welcome to the Map Game!
+</div>
 
-<%=link_to 'Play a game', new_user_game_path(@user.id) %>
+
+
+
+<div class="row">
+  <div class="col-md-12" id="hi">
+    <button><%=link_to 'Play a game', new_user_game_path(@user.id) %></button>
+  </div>
+</div>

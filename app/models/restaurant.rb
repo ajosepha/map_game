@@ -2,7 +2,7 @@ class Restaurant < ActiveRecord::Base
   attr_accessible :name, :street_address, :zip, :cuisine, :inspection_date, :violation, :current_grade
   belongs_to :game_zip
 
-  @@violations = {
+   VIOLATIONS = {
     "04L" => "Rats!",
     "01B" => "Document issued by the Board, Commissioner or Department unlawfully reproduced or altered.",
     "01C" => "Notice issued by the Board, Commissioner or Department unlawfully reproduced or altered.",
@@ -19,7 +19,7 @@ class Restaurant < ActiveRecord::Base
     "04N" => "Roaches"
     }
 
-  @@cuisine = { 
+  CUISINE = { 
     "01"=>"Afghan",
     "02"=>"African",
     "03"=>"American",
@@ -106,34 +106,35 @@ class Restaurant < ActiveRecord::Base
     "99"=>"Other",
     "00"=>"Not Listed/Not Applicable" }
 
-  def self.make_restaurants
+  def self.make_restaurant_json
     desired_data = [1, 3, 4, 5, 7, 8, 10, 12]
     column_names = [:name, :street_address, :zip, :cuisine, :inspection_date, :violation, :current_grade]
+    formatted_array = []
 
-    rows= File.open("#{Rails.public_path}/data/Inspections.txt").readlines
+    rows = File.open("#{Rails.public_path}/data/inspections.txt").readlines
     rows.shift
     rows.each do |line|
       temp_array = []
       temp_hash = {}
-      nil_flag = false
+      is_complete = true
       element_array = line.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').split("\",\"")
       element_array.each_with_index do |data_element, index|
-        nil_flag = true if data_element.class == NilClass && index != 10
-        if desired_data.include?(index) && nil_flag == false
+        is_complete = false if (data_element.class == NilClass && index != 10)
+        if desired_data.include?(index) && is_complete
           data_element = data_element.gsub("\"", "").gsub("   ", " ").gsub("  ", " ").strip
           case index
             when 4
               temp_array[1].concat(" " + data_element)
             when 7
-              data_element = @@cuisine[data_element]
+              data_element = CUISINE[data_element]
               temp_array << data_element
             when 8
               puts data_element
-              nil_flag = true unless Time.parse(data_element) > 6.month.ago
+              is_complete = false unless Time.parse(data_element) > 6.month.ago
               temp_array << data_element
             when 10
-              if @@violations.include?(data_element)
-                data_element = @@violations[data_element]
+              if VIOLATIONS.include?(data_element)
+                data_element = VIOLATIONS[data_element]
               elsif data_element == nil
                 data_element = "NONE"
               else
@@ -141,21 +142,29 @@ class Restaurant < ActiveRecord::Base
               end
               temp_array << data_element
             when 12
-              nil_flag = true if data_element == ""
+              is_complete = false if data_element == ""
               data_element = "Pending" if data_element == "P"
+              data_element = "Closed" if data_element == "Z"
               temp_array << data_element
             else
               temp_array << data_element
           end
         end
-          temp_array.each_with_index {|item, index| temp_hash[column_names[index]] = item} if nil_flag == false
-        end
-      Restaurant.new(temp_hash).save if nil_flag == false
       end
-
+      temp_array.each_with_index {|item, index| temp_hash[column_names[index]] = item}
+      puts is_complete
+      formatted_array << temp_hash if is_complete
+    end
+    File.open("#{Rails.public_path}/data/formatted_inspections.json", "w"){|file| file.write(JSON.pretty_generate(formatted_array))}
   end
 
-
+  def self.make_restaurants
+    file = File.open("#{Rails.public_path}/data/formatted_inspections.json")
+    parsed_file = JSON.parse(file.read)
+    parsed_file.each do |restaurant|
+      Restaurant.new(restaurant).save
+    end
+  end
    
 
 end
