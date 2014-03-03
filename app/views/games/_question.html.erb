@@ -1,13 +1,13 @@
 <div class="trivia"> Trivia!</div>
 <div class="question">
-  <%= form_tag do %>
+  <%= form_tag("/users/#{params[:user_id]}/games/#{params[:id]}", method: :put) do %>
   <%=label_tag question %>
  <%= radio_button_tag(:value, "true") %>
   <%= label_tag(:value_true, "yes") %>
   <%= radio_button_tag(:value, "false") %>
    <%=label_tag(:value_false, "no") %>
 
-
+  <%= submit_tag %>
 
   <%end%>
 </div>

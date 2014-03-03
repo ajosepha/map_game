@@ -7,6 +7,11 @@ gem 'titleize'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.1'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -56,3 +61,5 @@ end
 # gem 'debugger'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+ruby '2.0.0'
