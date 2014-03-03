@@ -3,7 +3,10 @@
   <p>You can sign in to play the game and learn more about NYC zip codes by winning features, or check out features by zip code to learn more about your hood!</p>
 </div>
 
+<div class="play">
+      <button><%= link_to 'Sign Up', new_user_path %></button><br/> 
+  </div>
+  <div class="play">
+    <button><%= link_to 'See zip codes', game_zips_path, @game_zips %></button>
+  </div>
 
-
-<button><%= link_to 'Sign Up', new_user_path %></button><br/> 
-<button><%= link_to 'See zip codes', game_zips_path, @game_zips %></button>

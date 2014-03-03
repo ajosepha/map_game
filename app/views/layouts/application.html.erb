@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MapGame</title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "game.css" %>
-  
-</head>
-<body>
-	<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <!--Sidebar content-->
-      <section> 
-       <p>Brooklyn<br>
-      	Queens<br>
-      	Manhattan<br> 
-      	Staten Island <br>
-      	Bronx <br> </p>
-      </section>
-    </div>
-   
-<%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert"-<%= key %>><%=value %></div>
-      <%end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
+  <head>
+    <title>MapGame</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "stylesheets/game.css" %>
+    <link href='http://fonts.googleapis.com/css?family=Seymour+One' rel='stylesheet' type='text/css'>
+    
+  </head>
+  <body>
+  <!-- 	<div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <!Sidebar content-->
+    <!--     <section> 
+         <p>Brooklyn<br>
+        	Queens<br>
+        	Manhattan<br> 
+        	Staten Island <br>
+        	Bronx <br> </p>
       
-<%= javascript_include_tag "application" %>
-</body>
+        </section>
+      </div> -->
+     
+  <%= render 'layouts/header' %>
+      <div class="container">
+        <% flash.each do |key, value| %>
+          <div class="alert alert"-<%= key %>><%=value %></div>
+        <%end %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+        
+  <%= javascript_include_tag "application" %>
+  </body>
 </html>
 
 
