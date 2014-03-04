@@ -119,3 +119,25 @@
   color: #08b89f;
   text-shadow: 1px 1px yellow;
 }
+
+.button {
+  background-color: #08b89f;  
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  width: 175px;
+  padding-top: 15px;
+  border-radius: 20px;
+  border: solid 2px white;
+  margin-left: 20px;
+
+}
+
+.button a{
+  color: white;
+  font-family: 'Seymour One', Arial;
+}
+
+.button-row{
+  text-align: center;
+}
