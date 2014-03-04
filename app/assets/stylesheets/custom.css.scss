@@ -235,3 +235,19 @@ input {
   @extend .error;
 }
 
+.button {
+  background-color: #08b89f; 
+  
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  width: 175px;
+  padding-top: 20px
+}
+
+.button a{
+  color: #d6d0c4;
+  font-family: 'Seymour One', Arial;
+
+}
+

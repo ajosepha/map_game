@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Welcome to the Map Game!"
+      # flash[:success] = "Welcome to the Map Game!"
       redirect_to @user
     else
       render 'new'

@@ -51,7 +51,7 @@ module MapGame
     config.filter_parameters += [:password]
 
     I18n.enforce_available_locales = true
-
+    #added this because of heroku, not sure if it is needed or if it will screw up development
     config.assets.initialize_on_precompile = false
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
