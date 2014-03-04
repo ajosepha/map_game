@@ -77,13 +77,13 @@
   .col-md-4
     .card
       %h4 Less Good Restaurants:
-    .elements
-      %ul
-      -@game_zip.restaurants.each do |restaurant|
-        - if restaurant.violation != "boring"
-          %li
-            - n = "n" if restaurant.current_grade == "A"
-            = "#{restaurant.name.titleize} at #{restaurant.street_address.titleize} is having problems with #{restaurant.violation}"
+      .elements
+        %ul
+        -@game_zip.restaurants.each do |restaurant|
+          - if restaurant.violation != "boring"
+            %li
+              - n = "n" if restaurant.current_grade == "A"
+              = "#{restaurant.name.titleize} at #{restaurant.street_address.titleize} is having problems with #{restaurant.violation}"
 
 .row
   .col-md-4
