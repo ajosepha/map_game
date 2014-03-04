@@ -40,6 +40,7 @@ button {
   padding: 10px;
   border-radius: 5px;
   background-color: #B7ED63;
+
 }
 section {
   overflow: auto;
@@ -235,19 +236,39 @@ input {
   @extend .error;
 }
 
+button{
+  font-family: 'Seymour One', Arial
+}
+
 .button {
-  background-color: #08b89f; 
-  
+  background-color: #08b89f;  
   display: inline-block;
   text-align: center;
   height: 50px;
   width: 175px;
-  padding-top: 20px
+  padding-top: 15px;
+  border-radius: 20px;
+  border: solid 2px white;
+  margin-left: 20px;
+
 }
 
 .button a{
-  color: #d6d0c4;
+  color: white;
   font-family: 'Seymour One', Arial;
+}
 
+.button-row{
+  text-align: center;
+}
+
+#new{
+  color:white;
+}
+
+#money{
+  font-size: 20px;
+  height: 80px;
+  width: 195px;
 }
 

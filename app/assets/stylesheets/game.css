@@ -58,8 +58,20 @@
   text-align: center;
 }
 
-.new_game {
-  background-image: url('brownstone.jpg');
+.new_game{
+  background-image: url('dumbo.jpg');
+  /*background-image: cover;
+  background-repeat: no-repeat;*/
+  padding: 120px ;
+  font-family: 'Seymour One', Arial;
+  color: #ff9900;
+  text-shadow: 1px 1px #5B2120;
+}
+}
+.winning {
+  background-image: url('congrats.jpg');
+  /*background-image: cover;
+  background-repeat: no-repeat;*/
   padding: 120px ;
   font-family: 'Seymour One', Arial;
   color: #ff9900;
@@ -71,7 +83,7 @@
 }
 
 .new_game .borough {
-  color: black;
+  color: red;
   font-family: Arial;
 }
 
@@ -90,4 +102,20 @@
 #triv {
   background-image: url('pointz.jpg');
   background-repeat: no-repeat;
+}
+
+.button hover:{
+  cursor: hover;
+}
+
+#win{
+  font-size: 20px;
+  height: 80px;
+  width: 195px;
+  color: #08b89f;
+}
+
+.winning h1{
+  color: #08b89f;
+  text-shadow: 1px 1px yellow;
 }
