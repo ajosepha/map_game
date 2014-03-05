@@ -8,10 +8,15 @@ $(document).ready(function(){
     $(this).find(".elements").toggleClass("hidden");
   })
 
-  $(".status:contains('Congrats!')").css("background-color", "#57FF97")
-});
+  
 
 $(".things").addClass("hidden");
   $(".card").on("click", function(event){
     $(this).find(".things").toggleClass("hidden");
   });
+
+
+});
+
+$(".status:contains('Congrats!')").css("background-color", "#60ad45")
+// $(".status:contains('Congrats!')").css("color", "pink")

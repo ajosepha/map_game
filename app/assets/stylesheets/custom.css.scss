@@ -85,7 +85,9 @@ p {
   line-height: 1.7em;
 }
 
-
+.won {
+  background-color: black;
+}
 /* header */
 
 #logo {
@@ -151,12 +153,21 @@ footer ul li {
 }
 
 .card{
-  border: 5px solid black;
-  background-color: #E4E2C9;
-  color: #441D25;
+  border: 4px solid black;
+  background-color: #c63d0f;
+  color: black;
   border-radius: 7px;
   font-size: 1.5em;
 }
+
+.card h4{
+  text-align: center;
+}
+
+// .status{
+//   color: black;
+//   background-color: blue;
+// }
 
 .things {
   background-color: coral;
@@ -167,17 +178,15 @@ footer ul li {
   color: cornsilk;
 }
 
-
-
-.purchased{
+.purchased {
   background-color: black;
   color: white;
 }
 
-.elements{
-  background-color: #88aaaa;
-  font-weight: bold;
-}
+// .elements{
+//   background-color: #88aaaa;
+//   font-weight: bold;
+// }
 
 li{
   font-size: 18px;

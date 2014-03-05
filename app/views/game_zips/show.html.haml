@@ -22,7 +22,7 @@
   .col-md-6
     .card
       %h4 Community Health Centers:
-      .elements
+      .things
         %ul
         - if @game_zip.community_health_centers.length == 0
           %li Sorry, this zipcode has no registered Community Health Centers
@@ -35,7 +35,7 @@
   .col-md-6
     .card
       %h4 Complaints:
-      .elements
+      .things
         %ul
         - if @game_zip.complaints.length == 0
           %li No complaints here!
@@ -49,7 +49,7 @@
   .col-md-6
     .card
       %h4 NYC StartUp Jobs:
-      .elements
+      .things
         %ul
         -if @game_zip.start_up_jobs.length == 0
           %li Looks like there are no NYC start up companies hiring here.
@@ -64,7 +64,7 @@
   .col-md-6
     .card 
       %h4 Good Restaurants:
-      .elements
+      .things
         %ul
         -if @game_zip.restaurants.length == 0
           Sucks for you, you're in a food desert!
@@ -79,7 +79,7 @@
   .col-md-6
     .card
       %h4 Less Good Restaurants:
-      .elements
+      .things
         %ul
         -@game_zip.restaurants.each do |restaurant|
           - if restaurant.violation != "boring"
@@ -91,7 +91,7 @@
   .col-md-6
     .card 
       %h4 Youth Programs:
-      .elements
+      .things
         %ul
         -if @game_zip.youth_programs.length == 0
           %li There aren't any youth programs in your zip code!
@@ -103,7 +103,7 @@
   .col-md-6
     .card
       %h4 Licensed Businesses:
-      .elements
+      .things
         %ul
         -if @game_zip.licensed_businesses.length == 0
           %li How is this possible? A purely residential zip code?
@@ -117,7 +117,7 @@
   .col-md-6
     .card 
       %h4 Volunteer Opportunties:
-      .elements
+      .things
         %ul
         -if @game_zip.volunteer_opportunities.length == 0
           %li None here
@@ -130,7 +130,7 @@
   .col-md-6
     .card
       %h4 Senior Centers:
-      .elements
+      .things
         %ul
         -if @game_zip.senior_centers.length == 0
           %li None
