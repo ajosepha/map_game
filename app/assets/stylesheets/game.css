@@ -120,8 +120,12 @@
   text-shadow: 1px 1px yellow;
 }
 
+.btn {
+  background-color: #A33921;
+  border-color: white;
+}
 .button {
-  background-color: #08b89f;  
+  background-color: #A33921;  
   display: inline-block;
   text-align: center;
   height: 50px;
@@ -141,3 +145,5 @@
 .button-row{
   text-align: center;
 }
+
+

@@ -18,12 +18,10 @@
           <% end %>
         </ul>
       </div>
-
       <div class = "<%= @game.status_community_health_centers == 0 ? "buy" : "not_purchasable" %>"> 
         <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_community_health_centers")%>
       </div>
-    </div>
-    
+    </div>  
   </div>
   
   <div class="col-md-4">
@@ -36,7 +34,6 @@
           <% end %>
         </ul>
       </div>
-
       <div class = "<%= @game.status_cultural_organizations == 0 ? "buy" : "not_purchasable" %> "> 
       <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_cultural_organizations")%>
       </div>
@@ -54,13 +51,11 @@
           <% end %>
         </ul>
       </div>
-
      <div class = "<%= @game.status_licensed_businesses == 0 ? "buy" : "not_purchasable" %> "> 
         <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_licensed_businesses")%>
       </div>
     </div>
   </div>
-
 </div>
 
 <div clas="row">
@@ -76,26 +71,25 @@
       </div>
       <div class = "<%= @game.status_restaurants == 0 ? "buy" : "not_purchasable" %> "> 
       <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_restaurants")%>
-     </div>
+      </div>
     </div>
   </div>
 
-<div class="col-md-4" >
-  <div class = "card">
-     <%= render partial: "buystatus", locals: { items: @game.status_senior_centers, :feature=> GameZip::FEATURES[4]} %>
-    <div class="elements">
-      <ul>
-       <% your_zip.senior_centers.each do |center| %>
-        <%= render partial: "senior_centers", locals: { center: center} %>
-      <%end %>
-      </ul>
-    </div>
-
+  <div class="col-md-4" >
+    <div class = "card">
+       <%= render partial: "buystatus", locals: { items: @game.status_senior_centers, :feature=> GameZip::FEATURES[4]} %>
+      <div class="elements">
+        <ul>
+         <% your_zip.senior_centers.each do |center| %>
+          <%= render partial: "senior_centers", locals: { center: center} %>
+        <%end %>
+        </ul>
+      </div>
      <div class = "<%= @game.status_senior_centers == 0 ? "buy" : "not_purchasable" %> "> 
       <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_senior_centers")%>
      </div>
-   </div>
- </div>
+    </div>
+  </div>
 
   <div class="col-md-4">
     <div class = "card">
@@ -107,15 +101,14 @@
           <% end %>
           </ul>
         </div>
-
        <div class = "<%= @game.status_volunteer_opportunities == 0 ? "buy" : "not_purchasable" %> "> 
         <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_volunteer_opportunities")%>
       </div>
     </div>
   </div>
-  <br/>
+</div>
 
-
+<div class="row"></div>
 
 <div class="row">
   <div class="col-md-4">
@@ -128,10 +121,9 @@
           <% end %>
         </ul>
       </div>
-      <div class = "<%= @game.status_youth_programs == 0 ? "buy" : "not_purchasable" %> "> 
+      <div class = "<%= @game.status_youth_programs == 0 ? "buy" : "not_purchasable" %> " 
         <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_youth_programs")%>
       </div>
-
     </div>
   </div>
 </div>
