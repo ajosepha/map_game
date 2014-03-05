@@ -6,10 +6,10 @@
     ="Zip: #{@game_zip.zip}"
 
 .row
-  .col-md-4
+  .col-md-6
     .card
       %h4 Cultural Organizations:
-      .elements
+      .things
         %ul 
         - if @game_zip.cultural_organizations.length == 0
           %li This zipcode has no registered Cultural Organizations
@@ -19,7 +19,7 @@
               = "#{org.organization_name} is a #{org.discipline_code} organization."
 
 
-  .col-md-4
+  .col-md-6
     .card
       %h4 Community Health Centers:
       .elements
@@ -31,8 +31,8 @@
             %li
               = center.name_of_center
 
-
-  .col-md-4
+.row
+  .col-md-6
     .card
       %h4 Complaints:
       .elements
@@ -45,8 +45,8 @@
               - location = " at #{complaint.incident_address}" unless complaint.incident_address.nil?
               = "#{complaint.descriptor}#{location}."
         
-.row
-  .col-md-4
+
+  .col-md-6
     .card
       %h4 NYC StartUp Jobs:
       .elements
@@ -60,7 +60,8 @@
               = job.address
               = job.hiring
 
-  .col-md-4
+.row
+  .col-md-6
     .card 
       %h4 Good Restaurants:
       .elements
@@ -75,7 +76,7 @@
                 = "#{restaurant.name.titleize} at #{restaurant.street_address.titleize} is a#{n} #{restaurant.current_grade} restaurant."
         
 
-  .col-md-4
+  .col-md-6
     .card
       %h4 Less Good Restaurants:
       .elements
@@ -87,7 +88,7 @@
               = "#{restaurant.name.titleize} at #{restaurant.street_address.titleize} is having problems with #{restaurant.violation}"
 
 .row
-  .col-md-4
+  .col-md-6
     .card 
       %h4 Youth Programs:
       .elements
@@ -99,7 +100,7 @@
             %li
               = "#{item.agency} offers #{item.program} for #{item.grade_level_age_group} kids at #{item.address}."
 
-  .col-md-4
+  .col-md-6
     .card
       %h4 Licensed Businesses:
       .elements
@@ -112,8 +113,8 @@
               =place.business_name.titleize + ","
               =place.industry.titleize
 
-
-  .col-md-4
+.row
+  .col-md-6
     .card 
       %h4 Volunteer Opportunties:
       .elements
@@ -126,7 +127,7 @@
               ="#{opportunity.title} with #{opportunity.org_title} at #{opportunity.address}."
 
 .row
-  .col-md-4
+  .col-md-6
     .card
       %h4 Senior Centers:
       .elements

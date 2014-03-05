@@ -158,6 +158,13 @@ footer ul li {
   font-size: 1.5em;
 }
 
+.elements li {
+  color: black;
+  font-family: arial;
+  font-size: 14px;
+  font-weight: normal;
+}
+
 .purchased{
   background-color: black;
   color: white;
@@ -243,11 +250,10 @@ button{
 .hidden {
   display: none;
 }
+
 .answered{
   color: red;
 }
-
-
 
 #new{
   color:white;
