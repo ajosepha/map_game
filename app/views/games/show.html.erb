@@ -121,7 +121,7 @@
           <% end %>
         </ul>
       </div>
-      <div class = "<%= @game.status_youth_programs == 0 ? "buy" : "not_purchasable" %> " 
+      <div class = "<%= @game.status_youth_programs == 0 ? "buy" : "not_purchasable" %> ">
         <%= button_to "Buy me for $1000", user_game_purchase_path(@user, @game, :cost => 1000, :feature => "status_youth_programs")%>
       </div>
     </div>
