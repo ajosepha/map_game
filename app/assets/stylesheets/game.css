@@ -1,5 +1,6 @@
 .jumbotron{
-  background-image: url('dumbo.jpg');
+  background-image: url('dumbo.jpg') no-repeat;
+  background-size: 100%;
   color: #FF9900;
   text-shadow: 1px 1px red;
 }
@@ -59,9 +60,8 @@
 }
 
 .new_game{
-  background-image: url('dumbo.jpg');
-  /*background-image: cover;
-  background-repeat: no-repeat;*/
+  background-image: url('dumbo.jpg') no-repeat;
+  background-size: 100%;
   padding: 120px ;
   font-family: 'Seymour One', Arial;
   color: #ff9900;
