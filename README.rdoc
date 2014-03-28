@@ -3,3 +3,7 @@ Welcome to the Zip Code Game.  This game parses NYC open data and gamifies it, b
 The data is parsed from NYC Open Data.  We initially received the data from NYC OpenData's API in the form of a large JSON file.  Since the data came in various formats, (eg: nested hashes), the fist step was to standardize it and make it uniform. This logic can be found in the models for each of the "features." There is also details on the gameplay, and how the game is structured.
 
 There is also a basic user-authentication system.  While Devise could have been used, this app uses sessions and follows the outline of Hartl's tutorial when setting up new users, signing-in, and signing-out. 
+
+Please submit if you find any bugs!
+
+On a sidenote, the image on the homepage is of Dumbo, right by where we had class every day at the Flatiron School.
